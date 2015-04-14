@@ -1,0 +1,14 @@
+﻿/*
+    yxx
+    2015-03-21
+    报表样式自定义
+*/
+*{ margin:0px; padding:0px;}
+body{width:1200px; margin:auto;}
+#Report{margin:0px; padding:0px;}
+#headerTable{ width:1200px; padding-top:5px; padding-bottom:3px;}
+.td_right{ float:right;}
+.td_input{ }
+.td_input input{ width:180px;}
+#btnLoad{ width:70px;  margin-top:4px; }
+#btnPrintAll{ width:80px;}

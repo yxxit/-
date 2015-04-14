@@ -1,0 +1,629 @@
+<!--/******************************************************************
+** 文件�? KDUpDonw.htc
+** Copyright (c) 2002-2003 金蝶国际软件集团有限公司 研发中心
+** http://www.kingdee.com
+**
+** 创建�? 苏万�?
+** �? �? ?
+**
+** 修改�? 钱志�?
+** �? �? 2003.2.20
+** �? �? 
+**
+** �? �?K/3.Net V1.1
+******************************************************************/-->
+
+<PUBLIC:COMPONENT>
+
+<PUBLIC:ATTACH event="onmousedown"		handler="m_OnMouseDown" />
+<PUBLIC:ATTACH event="onmouseup"		handler="m_OnMouseUp" />
+<PUBLIC:ATTACH event="onkeypress"		handler="m_OnKeyPress" />
+<PUBLIC:ATTACH event="onkeydown"		handler="m_OnKeyDown" />
+<PUBLIC:ATTACH event="onfocusout"		handler="m_OnFocusOut" />
+<PUBLIC:ATTACH event="onfocus"			handler="m_OnFocus" />
+<PUBLIC:ATTACH event="onmouseout"		handler="m_OnMouseOut" />
+<PUBLIC:ATTACH event="onmouseover"		handler="m_OnMouseOver" />
+<PUBLIC:ATTACH event="ondragstart"		handler="m_OnDragStart" />
+<PUBLIC:ATTACH event="oncontentready"	handler="m_Init" />
+
+<PUBLIC:PROPERTY name="Enabled"			get="f_GetEnabled"		put="f_SetEnabled" />
+<PUBLIC:PROPERTY name="MaxValue"		get="f_GetMaxValue"		put="f_SetMaxValue" />
+<PUBLIC:PROPERTY name="MinValue"		get="f_GetMinValue"		put="f_SetMinValue" />
+<PUBLIC:PROPERTY name="Value"			get="getValue"			put="setValue" />
+<PUBLIC:PROPERTY name="ChangeStep"		get="f_getChangeStep"	put="f_setChangeStep" />
+<PUBLIC:PROPERTY name="Circulatory"		get="getCirculatory"   put="setCirculatory" />
+
+<PUBLIC:EVENT name="OnKillFocus"		id="evtKillFocus"/>
+<PUBLIC:EVENT name="OnChange"			id="evtChange"/>
+<PUBLIC:EVENT name="OnLeaveEdit"		id="evtLeaveEdit" />
+<PUBLIC:EVENT NAME="OnTabJump"			ID="evtTabJump" />
+
+</PUBLIC:COMPONENT>
+ 
+<SCRIPT language="javascript">
+
+var flag = 0;			//连续标志;
+var imagePath;			//图片路径;
+var stepPrecision;		//步长精度;
+var objInput;			//文本输入框对�?
+var _maxValue;
+var _minValue;
+var enabled;
+var iTimerID;			//定时器ID;
+
+function m_Init()
+{
+	element.style.height = "";
+	
+	objInput = element.children(0).children(0).children(0).children(0);
+	objInput.style.imeMode = "disabled";
+	objInput.attachEvent("onchange",m_OnChange);
+	objInput.attachEvent("onpaste",m_OnPaste);
+	objInput.attachEvent("ondrop",m_OnDrop);
+	
+	imagePath = element.ImagePath;
+	enabled = element.InnerEnabled == "True";
+	
+	var j = objInput.changedStep.length;
+	var idx = objInput.changedStep.indexOf(".");
+	
+	if (idx>=0)
+	{
+		j = idx + 1;
+	}
+   
+	stepPrecision = objInput.changedStep.length - j;	//获取步长精度，小数点后的位数
+	_maxValue = new Number(Number(objInput.max).toFixed(stepPrecision));
+	_minValue = new Number(Number(objInput.min).toFixed(stepPrecision));
+	
+}
+
+function m_OnMouseDown()
+{
+   
+	if(!enabled) return;
+	
+	var obj = event.srcElement;
+	var tempNum = new Number(objInput.value);
+	
+	if (tempNum>_maxValue)
+	{
+		tempNum = _maxValue;
+	}
+	
+	if(tempNum<_minValue)
+	{
+		tempNum = _minValue;
+	}
+	
+	objInput.value = tempNum.toFixed(stepPrecision);
+	
+	if (obj.id=="Up")//如果鼠标按下的是向上箭头
+	{
+		obj.src = imagePath + "btn_select_up_3.gif";
+		tempNum = Number(objInput.value) + Number(objInput.changedStep);
+    
+    	if (objInput.circulatory=="true")
+    	{
+    	    if (tempNum<=_maxValue)
+    	    {
+    		    objInput.value = tempNum.toFixed(stepPrecision);
+    	    }
+    	    else if (tempNum>_maxValue)
+    	    {
+    		    objInput.value = _minValue;
+    	    }
+    	
+    	
+    	}
+    	else
+    	{
+    	    if (tempNum<=_maxValue)
+    	    {
+    		    objInput.value = tempNum.toFixed(stepPrecision);
+    	    }
+    	}
+    
+    	flag = 1;	
+    	iTimerID = window.setInterval(FastAdd, 200);
+
+	}
+	else 
+		if (obj.id=="Down")//如果鼠标按下的是向下箭头
+	{
+		obj.src = imagePath + "btn_select_down_3.gif";
+		tempNum = Number(objInput.value) - Number(objInput.changedStep);
+    	if (objInput.circulatory=="true")
+    	{
+    	    if (tempNum>=_minValue)
+    	    {
+    		    objInput.value = tempNum.toFixed(stepPrecision);
+    	    }
+    	    else if (tempNum<_minValue)
+    	    {
+    		    objInput.value = _maxValue;
+    	    }
+    	
+    	
+    	}
+    	else
+    	{
+		    if (tempNum>=_minValue)
+		    {
+    		    objInput.value = tempNum.toFixed(stepPrecision);
+    	    }
+    	}
+    
+       	flag = 1;	
+		iTimerID = window.setInterval(FastSubtract, 200);
+	}
+	
+	//m_OnChange();
+}
+
+function FastAdd()
+{
+	var tempNum = Number(objInput.value) + Number(objInput.changedStep);
+    	
+    if (tempNum<=_maxValue)
+    {
+    	objInput.value = tempNum.toFixed(stepPrecision);
+		element.document.all(element.HiddenName).value = getValue();    
+	}
+	else
+	{
+	    if (objInput.circulatory=="true")
+    	{
+    	    objInput.value = _minValue;
+		    element.document.all(element.HiddenName).value = getValue();    
+    	}
+	
+	}
+}
+
+function FastSubtract()
+{
+	var tempNum = Number(objInput.value) - Number(objInput.changedStep);
+		
+	if (tempNum>=_minValue)
+	{
+    	objInput.value = tempNum.toFixed(stepPrecision);
+    	element.document.all(element.HiddenName).value = getValue();
+    }
+	else
+	{
+	    if (objInput.circulatory=="true")
+    	{
+    	    objInput.value = _maxValue;
+		    element.document.all(element.HiddenName).value = getValue();    
+    	}
+	
+	}
+    
+}
+
+function m_OnMouseUp()
+{
+	if(!enabled) return;
+
+	var obj = event.srcElement;
+	
+	if (obj.id=="Up")
+	{
+		if(flag==1)
+		{
+			clearInterval(iTimerID);
+			flag = 0;
+		}
+		
+		obj.src = imagePath + "btn_select_up_2.gif";
+	}
+	else
+		if (obj.id=="Down")
+	{
+		if (flag==1)
+		{
+			clearInterval(iTimerID);
+			flag = 0;
+		}
+		
+		obj.src = imagePath + "btn_select_down_2.gif";
+	}
+}
+
+function m_OnKeyPress()//校验输入
+{
+	if(!enabled) return;
+	
+	var obj = event.srcElement;
+	
+	if (obj.id == "UpDownText")		//如果是输入框触发的事�?
+	{
+		if (event.keyCode==46)		//当输入为�?”时，判断小数点是否已经存在
+		{
+			if (obj.value.indexOf(".") >= 0)
+			{
+				event.returnValue = false;
+			}
+		}
+		else
+			if (event.keyCode>57 || event.keyCode<48) //防止其他非数字字符的输入	
+		{
+			event.returnValue=false;
+		}
+	}
+}
+	
+function m_OnKeyDown()
+{
+	if (!enabled) return;
+	
+	if(event.keyCode == 13) event.keyCode=9;
+	
+	if (event.keyCode == 9)
+	{
+		//event.cancelBubble = true;
+		//event.returnValue = false;
+		
+		var evt = createEventObject();
+		evt.dir = !event.shiftKey;
+		evtKillFocus.fire(evt);
+		evtTabJump.fire(evt);
+		
+		return;
+	}
+		
+	var src = event.srcElement;
+	if (src && src.tagName == "INPUT")
+	{
+		switch (event.keyCode)
+		{
+			case 38:				//Up
+				doDirection(1);
+				break;
+			case 40:				//Down
+				doDirection(-1);
+				break;
+			case 33:				//Pageup
+				doDirection(5);
+				break;
+			case 34:				//Pagedown
+				doDirection(-5);
+				break;
+		}
+	}	
+}
+
+function m_OnPaste()
+{
+	var cData = window.clipboardData.getData("Text");
+	var dData;
+		if (cData != null)
+		{
+		    if(cData.indexOf(",")>0)cData = cData.replace(/,/g,'');
+			dData = parseInt(cData);
+			if(!isNaN(dData))
+			{
+				window.clipboardData.setData("Text", dData.toString());
+				
+				return true;
+			}
+		}
+		
+		event.returnValue=false;
+	if (isNaN(parseFloat(dData)))
+	{
+		event.returnValue = false;
+	}
+}
+
+function m_OnDrop()
+{
+	var s = event.dataTransfer.getData("Text");
+	if (isNaN(parseFloat(s)))
+	{
+		event.returnValue = false;
+	}
+}
+
+function doDirection(dir)
+{
+	var ct = Math.abs(dir);
+	
+	if (dir > 0)
+	{
+		for (var i=0; i<ct; i++)
+		{
+			FastAdd();
+		}
+	}
+	else
+	{
+		for (var i=0; i<ct; i++)
+		{
+			FastSubtract();
+		}
+	}
+}
+
+function m_OnFocusOut()
+{
+	if (!enabled) return;
+	
+	m_OnChange();
+	
+	var o = event.toElement;
+	var bFire = true;
+	
+	while (o!=null)
+	{
+		if (o == element)
+		{
+			bFire = false;
+			break;
+		}
+		
+		o = o.parentElement;
+	}
+	
+	if (bFire)
+	{
+		var evt = element.document.createEventObject();
+		evtLeaveEdit.fire(evt);
+	}
+}
+
+function m_OnFocus()
+{
+	if (!enabled) return;
+	
+	objInput.focus();
+	objInput.select();
+}
+
+function m_OnMouseOut()
+{
+	if(!enabled) return;
+	
+	var obj = event.srcElement;
+	
+	if (obj.id=="Up")
+	{
+		if(flag==1)
+		{
+			clearInterval(iTimerID);
+			flag = 0;
+		}
+		
+		obj.src = imagePath+"btn_select_up_1.gif";
+	}
+	else
+		if (obj.id=="Down")
+	{
+		if(flag==1)
+		{
+			clearInterval(iTimerID);
+			flag = 0;
+		}
+		
+		obj.src = imagePath+"btn_select_down_1.gif";
+	}
+}
+
+function m_OnMouseOver()
+{
+	if(!enabled) return;
+	
+	var obj = window.event.srcElement;
+	
+	if (obj.id=="Up")
+	{
+		obj.src = imagePath + "btn_select_up_2.gif";
+	}
+	else
+		if (obj.id=="Down")
+	{
+		obj.src = imagePath + "btn_select_down_2.gif";
+	}
+}
+
+function m_OnChange()
+{
+	var obj = event.srcElement;
+	
+	if (obj.id=="UpDownText")	//如果是数字输入框触发的事�?
+	{
+		if (obj.value=="")
+		{
+			obj.value = String(_minValue);
+		}
+		else
+		{
+			var changedValue = Number(obj.value).toFixed(stepPrecision);
+			if (changedValue!=obj.value)
+			{
+				obj.value = Number(obj.value).toFixed(stepPrecision);
+			}
+				
+			if (Number(obj.value)<_minValue)
+			{
+				if (objInput.circulatory=="true")
+				{
+				obj.value = String(_maxValue);
+				}
+				else
+				{
+				  obj.value = String(_minValue);
+				}
+			}
+			else 
+				if (Number(obj.value)>_maxValue)
+			{
+				if (objInput.circulatory=="true")
+				{
+				obj.value = String(_minValue);
+				}
+				else
+				{
+				obj.value = String(_maxValue);
+				}
+				
+			}
+		}
+		
+	}
+	
+	var evt = createEventObject();
+	evtChange.fire(evt);
+	
+	element.document.all(element.HiddenName).value = getValue();
+}
+
+function m_OnDragStart()
+{
+	if(!enabled) return;
+	
+	element.document.releaseCapture()
+	event.returnValue = false;
+}
+
+function f_GetEnabled()
+{
+	return enabled;
+}
+
+function f_SetEnabled(value)
+{
+	enabled = value;
+	
+	objInput.disabled = !enabled;
+	element.style.filter = enabled ? "" : "Gray";
+}
+
+function getValue()
+{
+	return parseFloat(objInput.value);
+}
+
+function setValue(newValue)
+{
+	var tempNum = new Number(newValue);
+	
+	if (isNaN(tempNum))
+	{
+		return;
+	} 
+	else
+		if (tempNum < _minValue)
+	{
+		tempNum = _minValue;
+	}
+	else
+		if (tempNum > _maxValue)
+	{
+		tempNum = _maxValue;
+	}
+	
+	objInput.value = tempNum.toFixed(stepPrecision);
+	element.document.all(element.HiddenName).value = objInput.value;
+}
+
+function f_GetMaxValue()
+{
+	return _maxValue;
+}
+
+function f_SetMaxValue(value)
+{
+	var tmpNum = new Number(value);
+	
+	if (isNaN(tmpNum)) return;
+	
+	_maxValue = new Number(tmpNum.toFixed(stepPrecision));
+		
+	if (_minValue>_maxValue)
+	{
+		_minValue = _maxValue;
+	}
+	
+	if (Number(objInput.value)>_maxValue)
+	{
+		objInput.value = String(_maxValue);
+	}
+	
+	if (Number(objInput.value)<_minValue)
+	{
+		objInput.value = String(_minValue);
+	}
+}
+
+function f_GetMinValue()
+{
+	return _minValue;
+}
+
+function f_SetMinValue(value)
+{
+	var tmpNum = new Number(value);
+	
+	if (isNaN(tmpNum)) return;
+	
+	_minValue = new Number(tmpNum.toFixed(stepPrecision));
+	
+	if (_minValue>_maxValue)
+	{
+		_maxValue = _minValue;
+	}
+	
+	if (Number(objInput.value)>_maxValue)
+	{
+		objInput.value = String(_maxValue);
+	}
+	
+	if (Number(objInput.value)<_minValue)
+	{
+		objInput.value = String(_minValue);
+	}
+}
+
+function f_getChangeStep()
+{
+	return objInput.changeStep;	
+}
+
+function f_setChangeStep(val)
+{
+	objInput.changedStep = val;
+
+	var j = objInput.changedStep.length;	
+	var idx = objInput.changedStep.indexOf(".");
+	
+	if (idx>=0)
+	{
+		j = idx + 1;
+	}
+   
+	stepPrecision = objInput.changedStep.length - j;
+	_maxValue = new Number(Number(objInput.max).toFixed(stepPrecision));
+	_minValue = new Number(Number(objInput.min).toFixed(stepPrecision));
+}
+
+function setCirculatory(val)
+{
+
+    var circulatoryValue=false;
+    if (val.toString()=="true")
+    {
+    circulatoryValue = true;
+    }	
+    objInput.circulatory=circulatoryValue
+}
+
+function getCirculatory()
+{
+	return objInput.circulatory;	
+}
+
+
+
+</SCRIPT>

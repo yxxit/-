@@ -1,0 +1,1391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+	<assembly>
+		<name>Microsoft.ReportViewer.WebForms</name>
+	</assembly>
+	<members>
+		<member name="N:Microsoft.Reporting.WebForms">
+			<summary><see cref="N:Microsoft.Reporting.WebForms" /> 命名空间包含用于 ReportViewer Web 服务器控件的方法和属性。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.AspNetSessionExpiredException">
+			<summary>ASP.NET 会话已过期时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.BackEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Back" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.BackEventArgs.#ctor(Microsoft.Reporting.WebForms.Report)">
+			<summary>构造一个 BackEventArgs 对象。</summary>
+			<param name="parentReport">钻取报表的父报表。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.BackEventArgs.ParentReport">
+			<summary>获取钻取报表的父报表。</summary>
+			<returns>一个包含钻取报表的父报表的 <see cref="T:Microsoft.Reporting.WebForms.LocalReport" />（当 ReportViewer 控件处于本地处理模式时）或 <see cref="T:Microsoft.Reporting.WebForms.ServerReport" /> 对象（当 ReportViewer 控件处于远程处理模式时）。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.BackEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="T:Microsoft.Reporting.WebForms.Back" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">包含事件参数的 <see cref="T:Microsoft.Reporting.WebForms.BackEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.BookmarkNavigationEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.BookmarkNavigation" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.BookmarkNavigationEventArgs.#ctor(System.String)">
+			<summary>构造一个 BookmarkNavigationEventArgs 对象。</summary>
+			<param name="bookmarkId">书签标识字符串。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.BookmarkNavigationEventArgs.BookmarkId">
+			<summary>获取书签标识字符串。</summary>
+			<returns>一个只读 string 对象。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.BookmarkNavigationEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="T:Microsoft.Reporting.WebForms.BookmarkNavigation" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">包含事件参数的 <see cref="T:Microsoft.Reporting.WebForms.BookmarkNavigationEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ContentDisposition">
+			<summary>指明报表内容的存在方式。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ContentDisposition.AlwaysAttachment">
+			<summary>指明不论内容是哪种格式，始终作为附件存在。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ContentDisposition.AlwaysInline">
+			<summary>指明不论内容是哪种格式，均以内联方式存在。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ContentDisposition.OnlyHtmlInline">
+			<summary>指明 HTML 格式的内容以内联方式存在，其他所有内容都作为附件存在。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.CreateStreamCallback">
+			<summary>为 ReportViewer 控件提供流以进行呈现。 </summary>
+			<returns>ReportViewer 控件可以写入数据的 Stream 对象。</returns>
+			<param name="name">流的名称。</param>
+			<param name="extension">创建文件流时要使用的文件扩展名。</param>
+			<param name="encoding">指定流的字符编码的 Encoding 枚举器值。 如果流不包含字符，则此值可能为 null。</param>
+			<param name="mimeType">一个包含流的 MIME 类型的字符串。</param>
+			<param name="willSeek">指示流是否需要支持查找的 Boolean 值。 如果值为 false，则流将为只前推，并将按其创建顺序发送到块区中的客户端。 如果值为 true，则流可以任何顺序写入。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DataSourceCredentials">
+			<summary>表示数据源凭据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.DataSourceCredentials.#ctor">
+			<summary>构造一个 DataSourceCredentials 对象。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DataSourceCredentials.Name">
+			<summary>获取或设置数据源为连接到报表服务器使用的用户名。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DataSourceCredentials.Password">
+			<summary>获取或设置数据源为连接到报表服务器使用的密码。</summary>
+			<returns>一个包含密码的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DataSourceCredentials.UserId">
+			<summary>获取或设置数据源为连接到报表服务器使用的用户标识。</summary>
+			<returns>一个包含用户 ID 的字符串。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DocumentMapNavigationEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.DocumentMapNavigation" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.DocumentMapNavigationEventArgs.#ctor(System.String)">
+			<summary>构造一个 DocumentMapNavigationEventArgs 对象。</summary>
+			<param name="docMapID">一个包含文档结构图节点 ID 的字符串值。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DocumentMapNavigationEventArgs.DocumentMapId">
+			<summary>获取选择的文档结构图节点的唯一标识符。</summary>
+			<returns>一个包含文档结构图节点 ID 的只读字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DocumentMapNavigationEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.DocumentMapNavigation" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">一个包含事件参数的 <see cref="T:Microsoft.Reporting.WebForms.DocumentMapNavigationEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DocumentMapNode">
+			<summary>表示文档结构图中的单个节点。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DocumentMapNode.Children">
+			<summary>获取子文档结构图节点的集合。</summary>
+			<returns>一组只读 <see cref="T:Microsoft.Reporting.WebForms.DocumentMapNode" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DocumentMapNode.Id">
+			<summary>获取文档结构图节点的唯一标识符。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DocumentMapNode.Label">
+			<summary>获取与文档结构图节点相关的标签。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DrillthroughEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Drillthrough" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.DrillthroughEventArgs.#ctor(System.String,Microsoft.Reporting.WebForms.Report)">
+			<summary>构造一个 DrillthroughEventArgs 对象。</summary>
+			<param name="reportPath">钻取报表的路径。</param>
+			<param name="targetReport">钻取操作的目标报表。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DrillthroughEventArgs.Report">
+			<summary>获取钻取操作的目标报表。</summary>
+			<returns>只读 <see cref="T:Microsoft.Reporting.WebForms.LocalReport" /> 或 <see cref="T:Microsoft.Reporting.WebForms.ServerReport" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.DrillthroughEventArgs.ReportPath">
+			<summary>获取钻取报表的路径。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.DrillthroughEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Drillthrough" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">包含事件数据的 <see cref="T:Microsoft.Reporting.WebForms.DrillthroughEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.InvalidConfigFileTypeException">
+			<summary>当通过 Web.config 文件中的条目所提供的对象缺失或无效时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.InvalidTemporaryStorageStreamException">
+			<summary>当临时流不支持查找、读取或写入时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.IReportServerConnection">
+			<summary>提供在未启用会话状态下使用 ReportViewer Web 窗体控件时的报表服务器连接信息。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerConnection.ReportServerUrl">
+			<summary>返回报表服务器的 URL。</summary>
+			<returns>包含报表服务器的 URL 的 Uri 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerConnection.Timeout">
+			<summary>获取等待服务器通信的毫秒数。</summary>
+			<returns>包含等待服务器通信的毫秒数的整数值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.IReportServerConnection2">
+			<summary>提供在未启用会话状态下使用“ReportViewer”Web 窗体控件时的报表服务器连接信息。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerConnection2.Cookies">
+			<summary>获取要发送到报表服务器的自定义 Cookie 的集合。</summary>
+			<returns>一个包含自定义 Cookie 的 <see cref="T:System.Net.Cookie" /> 对象的集合。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerConnection2.Headers">
+			<summary>获取要发送到报表服务器的自定义标头的集合。</summary>
+			<returns>一个包含自定义标头值的 string 对象的集合。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.IReportServerCredentials">
+			<summary>允许应用程序提供用于连接到 Reporting Services 报表服务器的凭据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.IReportServerCredentials.GetFormsCredentials(System.Net.Cookie@,System.String@,System.String@,System.String@)">
+			<summary>提供连接到报表服务器时将使用的信息，该服务器配置为使用 Forms 身份验证。</summary>
+			<returns>
+            如果应该使用 Forms 身份验证，则为 true；否则为 false。</returns>
+			<param name="authCookie">[out] 报表服务器身份验证 Cookie。</param>
+			<param name="userName">[out] 用户名。</param>
+			<param name="password">[out] 用户密码。</param>
+			<param name="authority">[out] 对用户进行身份验证时要使用的机构，如 Microsoft Windows 域。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerCredentials.ImpersonationUser">
+			<summary>获取或设置当 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 控件连接到报表服务器时要模拟的用户的 <see cref="T:System.Security.Principal.WindowsIdentity" />。</summary>
+			<returns>一个表示要模拟的用户的 <see cref="T:System.Security.Principal.WindowsIdentity" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportServerCredentials.NetworkCredentials">
+			<summary>获取或设置向报表服务器进行身份验证时使用的网络凭据。</summary>
+			<returns><see cref="T:System.Net.ICredentials" /> 的实现，它包含用于连接到报表服务器的凭据信息。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.IReportViewerMessages">
+			<summary>允许应用程序提供自定义的用户界面消息。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.BackButtonToolTip">
+			<summary>提供“上一步”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ChangeCredentialsText">
+			<summary>为“更改凭据”按钮提供文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ChangeCredentialsToolTip">
+			<summary>为“更改凭据”按钮提供工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.CurrentPageTextBoxToolTip">
+			<summary>为“当前页”文本框提供工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.DocumentMap">
+			<summary>为“文档结构图”面板提供标题文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.DocumentMapButtonToolTip">
+			<summary>为“文档结构图”按钮提供工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ExportButtonText">
+			<summary>提供“导出”按钮的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ExportButtonToolTip">
+			<summary>提供“导出”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ExportFormatsToolTip">
+			<summary>为“导出格式”下拉列表框提供工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FalseValueText">
+			<summary>提供 false 值的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FindButtonText">
+			<summary>提供“查找”按钮的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FindButtonToolTip">
+			<summary>提供“查找”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FindNextButtonText">
+			<summary>提供“查找下一个”按钮的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FindNextButtonToolTip">
+			<summary>提供“查找下一个”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.FirstPageButtonToolTip">
+			<summary>提供“首页”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.InvalidPageNumber">
+			<summary>提供无效页码消息的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.LastPageButtonToolTip">
+			<summary>提供“最后一页”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.NextPageButtonToolTip">
+			<summary>提供“下一页”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.NoMoreMatches">
+			<summary>提供没有其他匹配项的消息的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.NullCheckBoxText">
+			<summary>提供 Null 复选框的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.NullValueText">
+			<summary>提供 null 值的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.PageOf">
+			<summary>提供分页消息的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ParameterAreaButtonToolTip">
+			<summary>提供“参数区域”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.PasswordPrompt">
+			<summary>提供密码提示的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.PreviousPageButtonToolTip">
+			<summary>提供“上一页”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.PrintButtonToolTip">
+			<summary>提供“打印”按钮的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ProgressText">
+			<summary>提供在处理报表时显示的进度消息的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.RefreshButtonToolTip">
+			<summary>提供“刷新”按钮的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.SearchTextBoxToolTip">
+			<summary>提供“搜索”文本框的工具提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.SelectAll">
+			<summary>为多值下拉列表框中的“全选”项提供文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.SelectAValue">
+			<summary>提供“选择一个值”提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.SelectFormat">
+			<summary>提供选择格式提示文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.TextNotFound">
+			<summary>提供“未找到文本”消息文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.TodayIs">
+			<summary>提供日历控件中的“今天是…”消息文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.TrueValueText">
+			<summary>提供 true 值的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.UserNamePrompt">
+			<summary>提供用户名提示的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ViewReportButtonText">
+			<summary>提供“查看报表”按钮的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ZoomControlToolTip">
+			<summary>为“缩放”控件提供工具提示。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ZoomToPageWidth">
+			<summary>提供“缩放到页宽”选项的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages.ZoomToWholePage">
+			<summary>提供“缩放到整页”项的文本。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.IReportViewerMessages2">
+			<summary>定义方法和属性来实现自定义用户界面消息。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.IReportViewerMessages2.CredentialMissingUserNameError(System.String)">
+			<summary>返回在没有为数据源凭据提供用户名时要显示的错误文本。</summary>
+			<returns>返回一个字符串，该字符串包含在没有为数据源凭据提供用户名时要显示的错误文本。</returns>
+			<param name="dataSourcePrompt">标识哪个数据源缺少值的提示值。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.IReportViewerMessages2.GetLocalizedNameForRenderingExtension(System.String)">
+			<summary>返回当前导出格式的本地化名称。</summary>
+			<returns>返回一个字符串，该字符串包含当前导出格式的本地化名称。</returns>
+			<param name="format">当前导出格式（例如，EXCEL、PDF）的名称。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.IReportViewerMessages2.ParameterMissingSelectionError(System.String)">
+			<summary>返回在没有针对多值报表参数做出选择时要显示的错误文本。</summary>
+			<returns>返回一个字符串，该字符串包含在没有针对多值报表参数做出选择时要显示的错误文本。</returns>
+			<param name="parameterPrompt">标识哪个报表参数尚未指定的提示值。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.IReportViewerMessages2.ParameterMissingValueError(System.String)">
+			<summary>返回在尚未指定报表参数的值时要显示的错误文本。</summary>
+			<returns>返回一个字符串，该字符串包含在尚未指定报表参数时要显示的错误文本。</returns>
+			<param name="parameterPrompt">标识哪个报表参数尚未指定的提示值。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages2.ClientNoScript">
+			<summary>获取在客户端浏览器上禁用脚本时要显示的文本。</summary>
+			<returns>一个字符串，包含在客户端浏览器上禁用脚本时要显示的文本。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages2.ClientPrintControlLoadFailed">
+			<summary>获取在客户端加载打印控件时如果发生错误则显示的文本。</summary>
+			<returns>一个文本字符串，包含在客户端加载打印控件时如果发生错误则显示的文本。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.IReportViewerMessages2.ParameterDropDownToolTip">
+			<summary>获取当指针悬停在多值参数下拉列表的向下箭头上时要显示的工具提示文本。</summary>
+			<returns>一个文本字符串，包含当指针悬停在多值参数下拉列表的向下箭头上时要显示的工具提示文本。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ITemporaryStorage">
+			<summary>为临时数据提供自定义存储。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ITemporaryStorage.CreateTemporaryStream">
+			<summary>提供用于存储临时数据的流。</summary>
+			<returns>用于存储临时数据的 Stream 对象。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.LocalProcessingException">
+			<summary>表示查看本地处理的报表时发生的错误。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.LocalReport">
+			<summary>表示不用连接到报表服务器而在本地处理和呈现的报表。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.#ctor">
+			<summary>初始化 <see cref="T:Microsoft.Reporting.WebForms.LocalReport" /> 类的一个新实例。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.LocalReport.SubreportProcessing">
+			<summary>在处理子报表时发生。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.AddTrustedCodeModuleInCurrentAppDomain(System.String)">
+			<summary>将提供的程序集添加至可以在当前 <see cref="T:System.AppDomain" /> 中执行的程序集列表。</summary>
+			<param name="assemblyName">要添加的程序集的名称。 </param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.Dispose">
+			<summary>释放由 <see cref="T:Microsoft.Reporting.WebForms.LocalReport" /> 对象使用的所有资源。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.ExecuteReportInCurrentAppDomain(System.Security.Policy.Evidence)">
+			<summary>导致在当前 <see cref="T:System.AppDomain" /> 中执行报表中的处理扩展插件和表达式。</summary>
+			<param name="reportEvidence">包含有关报表的安全信息的 <see cref="P:System.AppDomain.Evidence" /> 对象。 </param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.ExecuteReportInSandboxAppDomain">
+			<summary>导致处理扩展插件和表达式以有限权限在应用程序域中运行。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.GetDataSourceNames">
+			<summary>返回本地报表中使用的所有数据源的名称。</summary>
+			<returns>包含数据源名称列表的一组 String 对象。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.GetDefaultPageSettings">
+			<summary>获取在本地报表中指定的默认页设置。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.ReportPageSettings" /> 对象，包含本地报表中的默认页设置。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.GetParameters">
+			<summary>返回报表的报表参数属性。 </summary>
+			<returns>包含 <see cref="T:Microsoft.Reporting.WinForms.ReportParameterInfo" /> 对象数组的 <see cref="T:Microsoft.Reporting.WinForms.ReportParameterInfoCollection" /> 对象。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.GetTotalPages">
+			<summary>返回报表中逻辑页总数。</summary>
+			<returns>一个包含报表中逻辑页总数的整数值。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.ListRenderingExtensions">
+			<summary>返回本地报表的所有可用的呈现扩展插件。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.RenderingExtension" /> 对象数组。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.LoadReportDefinition(System.IO.TextReader)">
+			<summary>使用 <see cref="T:System.IO.TextReader" /> 从本地文件系统加载报表定义。</summary>
+			<param name="report">一个 <see cref="T:System.IO.TextReader" /> 类，可用来读取报表对应的报表定义语言 (RDL) 文件。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.LoadSubreportDefinition(System.String,System.IO.Stream)">
+			<summary>使用 <see cref="T:System.IO.Stream" /> 加载子报表定义。</summary>
+			<param name="reportName">子报表定义的路径和文件名。</param>
+			<param name="report">一个可用于读取子报表的报表定义语言 (RDL) 文件的 <see cref="T:System.IO.Stream" /> 类。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.LoadSubreportDefinition(System.String,System.IO.TextReader)">
+			<summary>使用 <see cref="T:System.IO.TextReader" /> 加载子报表定义。</summary>
+			<param name="reportName">子报表定义的路径和文件名。</param>
+			<param name="report">一个将包含子报表的报表定义语言 (RDL) 的 <see cref="T:System.IO.TextReader" /> 对象。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.Refresh">
+			<summary>导致用新数据呈现本地报表。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.Render(System.String,System.String,Microsoft.Reporting.WebForms.CreateStreamCallback,Microsoft.Reporting.WebForms.Warning[]@)">
+			<summary>处理报表，并使用回调函数提供的流以指定的格式呈现报表。</summary>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。此版本仅支持 EXCEL 格式。 </param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="createStream">一个将用于提供 <see cref="T:System.IO.Stream" /> 对象以进行呈现的 <see cref="T:Microsoft.Reporting.WebForms.CreateStreamCallback" /> 委托函数。</param>
+			<param name="warnings">[out] 一个 <see cref="T:Microsoft.Reporting.WebForms.Warning" /> 对象数组，描述在处理报表的过程中出现的任何警告。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.Render(System.String,System.String,System.String@,System.String@,System.String@,System.String[]@,Microsoft.Reporting.WebForms.Warning[]@)">
+			<summary>处理报表并以指定的格式呈现该报表。</summary>
+			<returns>具有指定格式的报表的 <see cref="T:System.Byte" /> 数组。</returns>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。 支持的格式包括 Microsoft Office Excel、PDF 和 Image。</param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="mimeType">[out] 呈现的报表的 MIME 类型。</param>
+			<param name="encoding">[out] 呈现报表内容时所使用的编码。</param>
+			<param name="fileNameExtension">[out] 输出文件所使用的文件扩展名。</param>
+			<param name="streams">[out] 流标识符。 您可以使用它们来呈现与报表关联的外部资源（例如，图像）。</param>
+			<param name="warnings">[out] 一个 <see cref="T:Microsoft.Reporting.WebForms.Warning" /> 对象数组，描述在处理报表的过程中出现的任何警告。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.LocalReport.SetParameters(System.Collections.Generic.IEnumerable{Microsoft.Reporting.WebForms.ReportParameter})">
+			<summary>设置本地报表的报表参数属性。</summary>
+			<param name="parameters">一个 <see cref="T:Microsoft.Reporting.WinForms.ReportParameter" /> 对象数组，包含报表参数属性列表。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.DataSources">
+			<summary>获取报表使用的数据源集合。</summary>
+			<returns>只读 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceCollection" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.EnableExternalImages">
+			<summary>指示在报表包含外部图像时是否可以呈现。</summary>
+			<returns>一个 Boolean 值。 true 值指示在本地报表包含外部图像时可以呈现。 默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.EnableHyperlinks">
+			<summary>指示在报表包含超链接操作时是否可以呈现。</summary>
+			<returns>一个 Boolean 值。true 值指示在报表包含超链接操作时可以呈现。 默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.OriginalParametersToDrillthrough">
+			<summary>返回从父报表传递到钻取报表的参数。</summary>
+			<returns>IList 集合中的一个 <see cref="T:Microsoft.Reporting.WebForms.ReportParameter" /> 对象数组，表示从父报表传递到钻取报表的参数；或者为空集合（此报表不是钻取报表时）。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.ReportEmbeddedResource">
+			<summary>获取或设置报表嵌入资源的名称。</summary>
+			<returns>一个包含嵌入资源名称的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.LocalReport.ReportPath">
+			<summary>获取或设置本地报表的本地文件系统路径。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingDataSourceCredentialsException">
+			<summary>表示在没有为报表使用的数据源提供凭据时发生的异常。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingDataSourceException">
+			<summary>表示在没有提供报表所需数据源时出现的错误。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingEndpointException">
+			<summary>表示无法访问 ReportViewer 控件使用的 SOAP 端点时出现的错误。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingParameterException">
+			<summary>表示在没有提供报表所需参数时发生的异常。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingReportServerConnectionInformationException">
+			<summary>未启用会话状态且没有通过 Web.config 文件提供实现 <see cref="T:Microsoft.Reporting.WebForms.IReportServerConnection" /> 界面的对象时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.MissingReportSourceException">
+			<summary>表示没有指定报表资源时发生的异常。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.PageNavigationEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.PageNavigation" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.PageNavigationEventArgs.#ctor(System.Int32)">
+			<summary>构造一个新的 PageNavigationEventArgs 对象。</summary>
+			<param name="newPage">一个包含新页码的整数值。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.PageNavigationEventArgs.NewPage">
+			<summary>获取由 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.PageNavigation" /> 事件得到的页码。</summary>
+			<returns>一个包含新页码的整数值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.PageNavigationEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.PageNavigation" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">包含此事件的参数的 <see cref="T:Microsoft.Reporting.WebForms.PageNavigationEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ParameterDataType">
+			<summary>指定参数的数据类型。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterDataType.Boolean">
+			<summary>表示 true 或 false 状态的 Boolean 数据类型。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterDataType.DateTime">
+			<summary>表示日期和时间的 DateTime 数据类型。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterDataType.Float">
+			<summary>表示浮点十进制值的 Float 数据类型。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterDataType.Integer">
+			<summary>Integer 数据类型。 </summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterDataType.String">
+			<summary>表示一组字符的 String 数据类型。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ParameterState">
+			<summary>指定参数的状态。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterState.DynamicValuesUnavailable">
+			<summary>参数值不可用。 此状态指明查询没有返回基于查询的有效值。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterState.HasOutstandingDependencies">
+			<summary>参数具有未处理的依赖关系。 这通常出现在参数的有效值或默认值是基于查询的，且存在未提交到 <see cref="M:Microsoft.Reporting.WebForms.Report.GetParameters" /> 方法的依赖关系时。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterState.HasValidValue">
+			<summary>存在有效的参数值。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ParameterState.MissingValidValue">
+			<summary>不存在有效的参数值。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ProcessingMode">
+			<summary>用于指定 ReportViewer 控件的处理模式。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ProcessingMode.Local">
+			<summary>指定将使用由 ReportViewer 控件提供的报表引擎处理和呈现报表。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ProcessingMode.Remote">
+			<summary>指定对于 Reporting Services 报表服务器的远程处理模式。 </summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.RenderingExtension">
+			<summary>封装可用于 ReportViewer 的报表的呈现扩展插件。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.RenderingExtension.LocalizedName">
+			<summary>获取呈现扩展插件的本地化显示名称。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.RenderingExtension.Name">
+			<summary>获取呈现扩展插件的名称。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.RenderingExtension.Visible">
+			<summary>指示呈现扩展插件在用户界面中是否可见。</summary>
+			<returns>一个 Boolean 值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.Report">
+			<summary>包含可应用于本地报表和服务器报表的方法和属性。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.GetDefaultPageSettings">
+			<summary>获取报表中指定的默认页设置。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.ReportPageSettings" /> 对象，包含本地报表中的默认页设置。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.GetDocumentMap">
+			<summary>返回本地报表的文档结构图的表示形式。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.DocumentMapNode" /> 对象，其中包含报表的文档结构图层次结构的顶层节点。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.GetParameters">
+			<summary>返回报表的报表参数属性。 </summary>
+			<returns>包含 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfo" /> 对象数组的 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection" /> 对象。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.GetTotalPages">
+			<summary>返回报表中逻辑页总数。</summary>
+			<returns>一个包含报表中逻辑页总数的整数值。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.ListRenderingExtensions">
+			<summary>返回本地报表的所有可用的呈现扩展插件。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.RenderingExtension" /> 对象数组。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.LoadReportDefinition(System.IO.Stream)">
+			<summary>使用 <see cref="T:System.IO.Stream" /> 从本地文件系统加载报表定义。</summary>
+			<param name="report">一个 <see cref="T:System.IO.Stream" /> 类，可用来读取报表对应的报表定义语言 (RDL) 文件。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.LoadReportDefinition(System.IO.TextReader)">
+			<summary>使用 <see cref="T:System.IO.TextReader" /> 从本地文件系统加载报表定义。</summary>
+			<param name="report">一个 <see cref="T:System.IO.TextReader" /> 类，可用来读取报表对应的报表定义语言 (RDL) 文件。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.Refresh">
+			<summary>使报表用新数据来呈现。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.Render(System.String,System.String,System.String@,System.String@,System.String@,System.String[]@,Microsoft.Reporting.WebForms.Warning[]@)">
+			<summary>处理报表并以指定的格式呈现该报表。</summary>
+			<returns>具有指定格式的报表的 <see cref="T:System.Byte" /> 数组。</returns>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。 支持的扩展插件包括 XML、NULL、CSV、IMAGE、PDF、HTML4.0、HTML3.2、MHTML、EXCEL 和 HTMLOWC。 </param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的详细信息，请参阅 SQL Server 2005 Reporting Services 文档中的“设备信息设置”。</param>
+			<param name="mimeType">[out] 呈现的报表的 MIME 类型。</param>
+			<param name="encoding">[out] 呈现报表内容时所使用的编码。</param>
+			<param name="fileNameExtension">[out] 输出文件所使用的文件扩展名。</param>
+			<param name="streams">[out] 流标识符，您可以使用它们来呈现与报表相关联的外部资源（例如，图像）。</param>
+			<param name="warnings">[out] 一个 <see cref="T:Microsoft.Reporting.WebForms.Warning" /> 对象数组，描述在处理报表的过程中出现的任何警告。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.Report.SetParameters(System.Collections.Generic.IEnumerable{Microsoft.Reporting.WebForms.ReportParameter})">
+			<summary>设置报表的报表参数属性。</summary>
+			<param name="parameters">一个 <see cref="T:Microsoft.Reporting.WebForms.ReportParameter" /> 对象数组，它包含报表参数属性列表。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Report.DisplayName">
+			<summary>获取或设置报表的显示名称。</summary>
+			<returns>一个包含报表的显示名称的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Report.IsDrillthroughReport">
+			<summary>指示该报表是否为钻取报表。</summary>
+			<returns>一个 Boolean 值。 值为 True 表示这是一个钻取报表。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportDataSource">
+			<summary>表示报表的数据源。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportDataSource.#ctor">
+			<summary>构造空的数据源。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportDataSource.#ctor(System.String)">
+			<summary>构造命名数据源。</summary>
+			<param name="name">数据源的名称。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportDataSource.#ctor(System.String,System.Object)">
+			<summary>使用值构造命名数据源。</summary>
+			<param name="name">数据源的名称。</param>
+			<param name="dataSourceValue">数据源的值。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportDataSource.#ctor(System.String,System.String)">
+			<summary>构造带有数据源 ID 的命名数据源。</summary>
+			<param name="name">数据源的名称。</param>
+			<param name="dataSourceId">数据源的 ID。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSource.DataMember">
+			<summary>指定要绑定的数据列表的名称。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSource.DataSourceId">
+			<summary>获取或设置数据源 ID。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSource.Name">
+			<summary>获取或设置报表数据源的名称。</summary>
+			<returns>一个包含数据源的名称的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSource.Value">
+			<summary>获取或设置报表数据源实例。</summary>
+			<returns>包含报表数据源实例的 Object。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportDataSourceCollection">
+			<summary>包含 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSource" /> 对象的集合。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSourceCollection.Item(System.String)">
+			<summary>从与指定名称匹配的集合返回报表数据源。</summary>
+			<returns><see cref="T:Microsoft.Reporting.WebForms.ReportDataSource" /> 对象。</returns>
+			<param name="name">要从集合检索的报表数据源的名称。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo">
+			<summary>表示有关报表数据源的信息。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSourceInfo.Name">
+			<summary>获取报表数据源的名称。</summary>
+			<returns>一个包含报表数据源的名称的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSourceInfo.Prompt">
+			<summary>获取数据源的提示。</summary>
+			<returns>一个包含数据源的提示的字符串。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportDataSourceInfoCollection">
+			<summary>表示 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象集合。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportDataSourceInfoCollection.Item(System.String)">
+			<summary>返回集合中的某特定 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象。</summary>
+			<returns><see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象。</returns>
+			<param name="name">要返回的 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象的名称。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportErrorEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.ReportError" /> 事件提供数据。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportErrorEventArgs.Exception">
+			<summary>返回包含报表错误信息的 Exception 对象。</summary>
+			<returns>一个包含报表错误信息的 Exception 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportErrorEventArgs.Handled">
+			<summary>指示宿主应用程序是否已经处理错误。</summary>
+			<returns>一个指示宿主应用程序是否已经处理错误的 Boolean 值。 默认值为 false。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportErrorEventHandler">
+			<summary>表示用来处理 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.ReportError" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。 </param>
+			<param name="e">一个包含事件有关信息的 <see cref="T:Microsoft.Reporting.WebForms.ReportErrorEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportPageSettings">
+			<summary>表示报表的页设置。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportPageSettings.Margins">
+			<summary>表示报表页的边距。 只读。</summary>
+			<returns>包含有关报表页的边距信息的只读 Margins 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportPageSettings.PaperSize">
+			<summary>表示报表页的纸张大小设置。 只读。</summary>
+			<returns>包含有关报表页大小的信息的只读 PaperSize 对象。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportParameter">
+			<summary>表示报表的参数。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor">
+			<summary>实例化新的 ReportParameter。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor(System.String)">
+			<summary>使用名称实例化新的 ReportParameter。</summary>
+			<param name="name">参数的名称。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor(System.String,System.String)">
+			<summary>使用名称和值实例化新的 ReportParameter。</summary>
+			<param name="name">参数的名称。</param>
+			<param name="value">参数的值。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor(System.String,System.String[])">
+			<summary>使用名称实例化新的多值 ReportParameter。</summary>
+			<param name="name">参数的名称。</param>
+			<param name="values">参数的值。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor(System.String,System.String,System.Boolean)">
+			<summary>使用名称、值和可见性标志实例化新的 ReportParameter。</summary>
+			<param name="name">参数的名称。</param>
+			<param name="value">参数的值。</param>
+			<param name="visible">确定参数是否显示在用户界面中。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportParameter.#ctor(System.String,System.String[],System.Boolean)">
+			<summary>使用名称、可见性标志和多个值实例化新的 ReportParameter。</summary>
+			<param name="name">参数的名称。</param>
+			<param name="values">参数的值。</param>
+			<param name="visible">确定参数是否显示在用户界面中。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameter.Name">
+			<summary>获取或设置参数的名称。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameter.Values">
+			<summary>获取包含一个或多个参数值的 string 对象的集合。</summary>
+			<returns>StringCollection 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameter.Visible">
+			<summary>确定参数是否可显示在用户界面中。</summary>
+			<returns>一个 Boolean 值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportParameterInfo">
+			<summary>封装有关报表参数的信息。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.AllowBlank">
+			<summary>指示空字符串是否为有效的参数值。 只读。</summary>
+			<returns>一个 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.AreDefaultValuesQueryBased">
+			<summary>指示参数的默认值是否基于查询。 只读。</summary>
+			<returns>一个 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.AreValidValuesQueryBased">
+			<summary>指示参数的有效值是否基于查询。 只读。</summary>
+			<returns>一个只读 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.DataType">
+			<summary>获取参数的数据类型。 只读。</summary>
+			<returns>一个只读 <see cref="T:Microsoft.Reporting.WebForms.ParameterDataType" /> 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Dependencies">
+			<summary>获取一组参数，这些参数的值用于在查询中检索其他参数值。 只读。</summary>
+			<returns>一个只读 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection" />。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Dependents">
+			<summary>一组参数，这些参数将此参数的值作为参数用于查询中以检索 <see cref="P:Microsoft.Reporting.WebForms.ReportParameterInfo.ValidValues" /> 和/或 <see cref="F:Microsoft.SqlServer.ReportingServices.ReportParameter.DefaultValues" />。</summary>
+			<returns>一个只读 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection" />。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.ErrorMessage">
+			<summary>获取参数验证失败时返回的错误消息。 只读。</summary>
+			<returns>一个包含错误消息的文本的只读字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.IsQueryParameter">
+			<summary>指示参数是否用于针对外部数据源的查询中。 只读。</summary>
+			<returns>一个只读 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.MultiValue">
+			<summary>指示参数是否可以为多值参数。 只读。</summary>
+			<returns>一个只读 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Name">
+			<summary>获取参数的名称。 只读。</summary>
+			<returns>一个包含参数名称的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Nullable">
+			<summary>指示参数的值是否可以为 null。 只读。</summary>
+			<returns>一个只读 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Prompt">
+			<summary>提示用户提供参数值的文本。</summary>
+			<returns>一个包含提示文本的字符串。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.PromptUser">
+			<summary>指示是否提示用户提供参数值。</summary>
+			<returns>一个只读 Boolean 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.State">
+			<summary>描述参数的状态。 只读。</summary>
+			<returns>只读 <see cref="T:Microsoft.Reporting.WebForms.ParameterState" /> 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.ValidValues">
+			<summary>获取可用的有效参数值。 只读。</summary>
+			<returns>一组只读 <see cref="T:Microsoft.Reporting.WebForms.ValidValue" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Values">
+			<summary>获取参数值。</summary>
+			<returns>一组只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfo.Visible">
+			<summary>确定参数是否可显示在用户界面中。</summary>
+			<returns>一个 Boolean 值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection">
+			<summary><see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfo" /> 对象的集合。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportParameterInfoCollection.Item(System.String)">
+			<summary>从 ReportParameterInfoCollection 返回命名项。</summary>
+			<returns>集合中的 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfo" /> 对象。</returns>
+			<param name="name">要检索的项的名称。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportSecurityException">
+			<summary>表示报表包含安全冲突时出现的错误。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportServerException">
+			<summary>表示查看服务器报表时出现的错误。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportServerException.ErrorCode">
+			<summary>从异常返回错误代码。</summary>
+			<returns>一个包含由异常返回的错误代码的字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportViewer">
+			<summary>封装用于“ReportViewer”控件的方法和属性。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewer.#ctor">
+			<summary>初始化 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 类的一个新实例。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.Back">
+			<summary>当用户从钻取报表向回导航至父报表时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.BookmarkNavigation">
+			<summary>当用户浏览至报表中的书签时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.DocumentMapNavigation">
+			<summary>当选择了文档结构图节点时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.Drillthrough">
+			<summary>当选择了钻取项时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.PageNavigation">
+			<summary>当用户移至报表中的其他页时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.ReportError">
+			<summary>在报表中发现错误时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.ReportRefresh">
+			<summary>当刷新报表时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.Search">
+			<summary>当单击“查找”或“查找下一个”按钮时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.Sort">
+			<summary>当用户激活报表数据的排序时发生。</summary>
+		</member>
+		<member name="E:Microsoft.Reporting.WebForms.ReportViewer.Toggle">
+			<summary>当用户切换报表中的项的可见性时发生。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewer.JumpToBookmark(System.String)">
+			<summary>将报表的焦点移至指定的书签。</summary>
+			<param name="bookmarkId">书签的 ID。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewer.JumpToDocumentMapId(System.String)">
+			<summary>将文档结构图的焦点移至指定的节点。</summary>
+			<param name="documentMapId">文档结构图节点的 ID。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewer.PerformBack">
+			<summary>通过“ReportViewer”控件从钻取报表向回导航至父报表。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewer.Reset">
+			<summary>将控件重置为其默认值。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.AsyncRendering">
+			<summary>获取或设置一个指示“ReportViewer”控件是否以异步方式呈现报表的值。</summary>
+			<returns>
+            如果 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 控件以异步方式呈现报表，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.BackColor">
+			<summary>获取或设置控件的报表区域的背景色。</summary>
+			<returns>指示控件的报表区域的背景色的 <see cref="T:System.Drawing.Color" /> 值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.CurrentPage">
+			<summary>获取或设置“ReportViewer”控件的活动报表的当前页。</summary>
+			<returns>一个包含报表的当前页的整数值。 默认值为 0。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.DocumentMapCollapsed">
+			<summary>获取或设置文档结构图的折叠状态。</summary>
+			<returns>
+            如果文档结构图处于折叠状态，则为 true；否则为 false。 默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.DocumentMapWidth">
+			<summary>获取或设置文档结构图的宽度。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.Unit" /> 值，包含文档结构图的宽度（以像素为单位）。 默认值为 40。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ExportContentDisposition">
+			<summary>获取或设置一个指示内容应以内联方式存在还是作为附件存在的值。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.ContentDisposition" /> 枚举值，用于指明内容的存在方式。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.HyperlinkTarget">
+			<summary>获取或设置单击报表中的超链接时返回的网页内容的目标窗口或框架。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.InternalBorderColor">
+			<summary>获取或设置控件的内部边框颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明控件的内部边框颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.InternalBorderStyle">
+			<summary>获取或设置控件的内部边框样式。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.BorderStyle" /> 值，用于指明控件的内部边框样式。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.InternalBorderWidth">
+			<summary>获取或设置控件的内部边框宽度。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.Unit" /> 值，包含控件的内部边框宽度。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.LinkActiveColor">
+			<summary>获取或设置控件中的活动链接的颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明活动链接的颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.LinkActiveHoverColor">
+			<summary>获取或设置当鼠标指针处于控件中的活动链接上时该链接的颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明活动链接处于悬停状态时的颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.LinkDisabledColor">
+			<summary>获取或设置控件中的禁用链接的颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明禁用链接的颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.LocalReport">
+			<summary>获取当 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 控件的 <see cref="P:Microsoft.Reporting.WebForms.ReportViewer.ProcessingMode" /> 设置为 <see cref="F:Microsoft.Reporting.WebForms.ProcessingMode.Local" /> 时使用的 <see cref="T:Microsoft.Reporting.WebForms.Report" /> 类的实例。</summary>
+			<returns>一个包含“ReportViewer”控件中的本地报表的 <see cref="T:Microsoft.Reporting.WebForms.LocalReport" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ProcessingMode">
+			<summary>获取或设置“ReportViewer”控件的处理模式。</summary>
+			<returns>值为 Local 或 Remote 的 <see cref="T:Microsoft.Reporting.WebForms.ProcessingMode" /> 枚举值。 默认值为 Local。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.PromptAreaCollapsed">
+			<summary>获取或设置提示区域的折叠状态。</summary>
+			<returns>
+            如果提示区域处于折叠状态，则为 true；否则为 false。 默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ServerReport">
+			<summary>获取当 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 控件的 <see cref="P:Microsoft.Reporting.WebForms.ReportViewer.ProcessingMode" /> 设置为 <see cref="F:Microsoft.Reporting.WebForms.ProcessingMode.Remote" /> 时使用的 <see cref="T:Microsoft.Reporting.WebForms.Report" /> 类的实例。</summary>
+			<returns>一个包含“ReportViewer”控件中的服务器报表的 <see cref="T:Microsoft.Reporting.WebForms.ServerReport" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowBackButton">
+			<summary>获取或设置一个指示“后退”按钮在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“后退”按钮在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowCredentialPrompts">
+			<summary>获取或设置一个值，该值指示是否显示要求提供用户凭据的提示。</summary>
+			<returns>
+            如果向用户显示要求提供凭据的提示，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowDocumentMapButton">
+			<summary>获取或设置一个指示“文档结构图”按钮在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“文档结构图”按钮在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowExportControls">
+			<summary>获取或设置一个指示“Export”控件在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“Export”控件在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowFindControls">
+			<summary>获取或设置一个指示“查找”文本框在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“查找”文本框在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowPageNavigationControls">
+			<summary>获取或设置一个指示页导航控件在工具栏上是否可见的值。</summary>
+			<returns>
+            如果页导航控件在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowParameterPrompts">
+			<summary>获取或设置一个指示是否显示参数提示的值。</summary>
+			<returns>
+            如果显示参数提示，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowPrintButton">
+			<summary>获取或设置一个指示“打印”按钮在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“打印”按钮在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowPromptAreaButton">
+			<summary>获取或设置一个指示“提示区域”按钮在工具栏上是否可见的值。</summary>
+			<returns>
+            如果“提示区域”按钮在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowRefreshButton">
+			<summary>获取或设置一个指示“刷新”按钮是否可见的值。</summary>
+			<returns>
+            如果“刷新”按钮在工具栏上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowReportBody">
+			<summary>获取或设置一个指示表体在控件上是否可见的值。</summary>
+			<returns>
+            如果表体在控件上可见，则为 true；否则为 false。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowToolBar">
+			<summary>获取或设置一个指示工具栏在控件上是否可见的值。</summary>
+			<returns>一个 Boolean 值。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ShowZoomControl">
+			<summary>获取或设置一个指示“缩放”文本框是否可见的值。</summary>
+			<returns>一个 Boolean 值。 默认值为 true。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.SizeToReportContent">
+			<summary>获取或设置一个值，该值指示“ReportViewer”控件是否应自动调整大小以容纳报表内容。</summary>
+			<returns>一个 Boolean 值。 值 true 指示该控件应自动调整大小以容纳报表内容。默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemBorderColor">
+			<summary>获取或设置工具栏上某一项的边框颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明工具栏项的颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemBorderStyle">
+			<summary>获取或设置工具栏上某一项的边框样式。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.BorderStyle" /> 值，包含工具栏项的边框样式。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemBorderWidth">
+			<summary>获取或设置工具栏项的边框宽度。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.Unit" /> 值，包含工具栏项的边框宽度。 </returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemHoverBackColor">
+			<summary>获取或设置当鼠标指针位于工具栏项上时该项的背景颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，指示在处于悬停状态时工具栏项的背景颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemPressedBorderColor">
+			<summary>获取或设置按下工具栏项时该项的颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，用于指明工具栏项处于按下状态时的颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemPressedBorderStyle">
+			<summary>获取或设置选中工具栏项时该项的边框样式。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.BorderStyle" /> 值，包含处于选中状态的工具栏项的边框样式。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemPressedBorderWidth">
+			<summary>获取或设置选中工具栏项时该项的边框宽度。</summary>
+			<returns>一个 <see cref="T:System.Web.UI.WebControls.Unit" /> 值，包含选中工具栏项时该项的边框宽度。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ToolBarItemPressedHoverBackColor">
+			<summary>获取或设置当鼠标指针位于工具栏项上时该项的背景颜色。</summary>
+			<returns>一个 <see cref="T:System.Drawing.Color" /> 值，指示在处于悬停状态时工具栏项的背景颜色。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.WaitMessageFont">
+			<summary>获取在执行报表时显示的消息所采用的字体。</summary>
+			<returns>一个包含该字体值的 <see cref="T:System.Web.UI.WebControls.FontInfo" /> 对象。 默认字体为 14 磅宋体。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ZoomMode">
+			<summary>获取或设置控件的缩放模式。</summary>
+			<returns>指示控件的缩放模式的 <see cref="P:Microsoft.Reporting.WebForms.ReportViewer.ZoomMode" /> 枚举器值。 默认值为 100%。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ReportViewer.ZoomPercent">
+			<summary>获取或设置显示报表时要使用的缩放百分比。</summary>
+			<returns>一个包含缩放百分比的整数值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportViewerCookieCollection">
+			<summary>表示 <see cref="T:System.Net.Cookie" /> 对象的集合。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportViewerException">
+			<summary>表示查看报表时发生的错误。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewerException.#ctor(System.String)">
+			<summary>此构造函数支持 .NET Framework 基础结构，但不适合直接在代码中使用。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ReportViewerException.#ctor(System.String,System.Exception)">
+			<summary>此构造函数支持 .NET Framework 基础结构，但不适合直接在代码中使用。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportViewerHandlerNotRegisteredException">
+			<summary>当 Web.config 文件没有 HTTP 处理程序条目时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ReportViewerHeaderCollection">
+			<summary>表示包含自定义标头的字符串的集合。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SearchEventArgs">
+			<summary>为 ReportViewer 控件中的 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Search" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.SearchEventArgs.#ctor(System.String,System.Int32,System.Boolean)">
+			<summary>构造一个新的 SearchEventArgs 对象。</summary>
+			<param name="searchString">搜索字符串。</param>
+			<param name="startPage">开始搜索的页。</param>
+			<param name="isFindNext">指示此事件是由于执行“查找下一个”命令引起的。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SearchEventArgs.IsFindNext">
+			<summary>指示此事件是由于执行“查找下一个”命令引起的。</summary>
+			<returns>一个 Boolean 值。 值为 true 表示由于执行“查找下一个”命令导致发生此事件。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SearchEventArgs.SearchString">
+			<summary>返回搜索使用的搜索字符串。</summary>
+			<returns>一个包含搜索字符串的字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SearchEventArgs.StartPage">
+			<summary>返回开始搜索的页码。</summary>
+			<returns>一个包含要搜索的开始页码的整数。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SearchEventHandler">
+			<summary>表示用来处理 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Search" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">一个包含事件有关信息的 <see cref="T:Microsoft.Reporting.WebForms.ReportErrorEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ServerReport">
+			<summary>表示在报表服务器上处理和呈现的报表。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetDataSources">
+			<summary>检索有关用于报表的数据源的信息。</summary>
+			<returns>一个包含 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象的 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfoCollection" />。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetDataSources(System.Boolean@)">
+			<summary>检索有关用于报表的数据源的信息，包括是否已为报表数据源提供了所有必需的凭据。</summary>
+			<returns>一个包含 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfo" /> 对象的 <see cref="T:Microsoft.Reporting.WebForms.ReportDataSourceInfoCollection" />。</returns>
+			<param name="allCredentialsSet">[out] 指示是否已为服务器报表使用的数据源提供了所有必需的凭据。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetDefaultPageSettings">
+			<summary>获取在本地报表中指定的默认页设置。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.ReportPageSettings" /> 对象，包含本地报表中的默认页设置。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetExecutionId">
+			<summary>返回当前的执行 ID，或者返回 Null（在 Visual Basic 中为 Nothing）（如果没有执行 ID 可用）。</summary>
+			<returns>一个包含执行 ID 的字符串。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetParameters">
+			<summary>返回报表的报表参数属性。</summary>
+			<returns>一个包含 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfo" /> 对象数组的 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection" /> 对象。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetServerVersion">
+			<summary>返回报表服务器的版本。</summary>
+			<returns>一个包括服务器版本信息的字符串值。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.GetTotalPages">
+			<summary>检索服务器报表的总逻辑页数。</summary>
+			<returns>一个包含报表中逻辑页总数的整数值。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.IsQueryExecutionAllowed">
+			<summary>指示报表是否可以执行查询。</summary>
+			<returns>一个指示报表是否可以执行查询的 Boolean 值。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.ListRenderingExtensions">
+			<summary>返回服务器报表的所有可用呈现扩展插件。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.RenderingExtension" /> 对象数组。</returns>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.LoadReportDefinition(System.IO.TextReader)">
+			<summary>使用 <see cref="T:System.IO.TextReader" /> 从报表服务器加载报表定义。</summary>
+			<param name="report">一个 <see cref="T:System.IO.TextReader" /> 类，可用来读取报表对应的报表定义语言 (RDL) 文件。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.Refresh">
+			<summary>使报表用新数据来呈现。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.Render(System.String,System.String,System.Collections.Specialized.NameValueCollection,System.String@,System.String@)">
+			<summary>使用可选的 URL 访问参数呈现报表。</summary>
+			<returns>一个包含呈现的报表的 <see cref="T:System.IO.Stream" />。</returns>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。 支持的格式包括 Microsoft Office Excel、PDF 和 Image。 </param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="urlAccessParameters">要传递给报表服务器的 URL 访问参数。 有关更多信息，请参见 SQL Server 联机丛书中的“URL 访问”文档。此参数可以设置为 Null。</param>
+			<param name="mimeType">[out] 呈现的报表的 MIME 类型。</param>
+			<param name="fileNameExtension">[out] 输出文件所使用的文件扩展名。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.Render(System.String,System.String,System.Collections.Specialized.NameValueCollection,System.IO.Stream,System.String@,System.String@)">
+			<summary>使用可选的 URL 访问参数呈现报表。</summary>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。 支持的格式包括 Microsoft Office Excel、PDF 和 Image。</param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="urlAccessParameters">要传递给报表服务器的 URL 访问参数。 有关更多信息，请参见 SQL Server 联机丛书中的“URL 访问”文档。此参数可以设置为 Null。</param>
+			<param name="reportStream">要将呈现的报表写入其中的流。</param>
+			<param name="mimeType">[out] 呈现的报表的 MIME 类型。</param>
+			<param name="fileNameExtension">[out] 输出文件所使用的文件扩展名。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.Render(System.String,System.String,System.String@,System.String@,System.String@,System.String[]@,Microsoft.Reporting.WebForms.Warning[]@)">
+			<summary>处理报表并以指定的格式呈现该报表。</summary>
+			<returns>具有指定格式的报表的 <see cref="T:System.Byte" /> 数组。</returns>
+			<param name="format">呈现报表所用的格式。 此参数将映射到某个呈现扩展插件。 支持的格式包括 Microsoft Office Excel、PDF 和 Image。</param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="mimeType">[out] 呈现的报表的 MIME 类型。</param>
+			<param name="encoding">[out] 呈现报表内容时所使用的编码。</param>
+			<param name="fileNameExtension">[out] 输出文件所使用的文件扩展名。</param>
+			<param name="streams">[out] 流标识符。 您可以使用它们来呈现与报表关联的外部资源（例如，图像）。</param>
+			<param name="warnings">[out] 一个 <see cref="T:Microsoft.Reporting.WebForms.Warning" /> 对象数组，描述在处理报表的过程中出现的任何警告。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.RenderStream(System.String,System.String,System.String,System.String@,System.String@)">
+			<summary>返回与处理的报表关联的辅助流。</summary>
+			<returns>一个由采用指定格式的流组成的 <see cref="T:System.Byte" /> 数组。 有关此数据类型的更多信息，请参见 .NET Framework 文档中的“字节结构”。</returns>
+			<param name="format">用来呈现流的格式。 此参数将映射到某个呈现扩展插件。支持的扩展插件包括 XML、NULL、CSV、IMAGE、PDF、HTML4.0、HTML3.2、MHTML、Excel 和 HTMLOWC。</param>
+			<param name="streamId">流标识符。</param>
+			<param name="deviceInfo">一个 XML 字符串，包含 format 参数中所指定的呈现扩展插件所需的设备特定内容。 有关特定输出格式的设备信息设置的更多信息，请参见 SQL Server 联机丛书中的“设备信息设置”。</param>
+			<param name="mimeType">流的 MIME 类型。</param>
+			<param name="encoding"> Microsoft .NET Framework 编码类名。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.SetDataSourceCredentials(Microsoft.Reporting.WebForms.DataSourceCredentials[])">
+			<summary>设置报表的数据源凭据。</summary>
+			<param name="credentials">一个 <see cref="T:Microsoft.Reporting.WebForms.Credentials" /> 对象数组。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.SetExecutionId(System.String)">
+			<summary>使用服务器上的特定报表执行初始化服务器报表。 </summary>
+			<param name="executionId">一个包含要使用的执行 ID 的字符串。</param>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.ServerReport.SetParameters(System.Collections.Generic.IEnumerable{Microsoft.Reporting.WebForms.ReportParameter})">
+			<summary>设置报表的报表参数属性。</summary>
+			<param name="parameters">一个 <see cref="T:Microsoft.Reporting.WebForms.ReportParameter" /> 对象数组，它包含报表参数属性列表。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.Cookies">
+			<summary>获取 <see cref="T:System.Net.Cookie" /> 对象的集合。</summary>
+			<returns>一个包含 <see cref="T:System.Net.Cookie" /> 对象的集合的 <see cref="T:Microsoft.Reporting.WebForms.ReportViewerCookieCollection" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.Headers">
+			<summary>获取一个包含自定义标头的字符串的集合。</summary>
+			<returns>一个包含自定义标头集合的 <see cref="T:Microsoft.Reporting.WebForms.ReportViewerHeaderCollection" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.HistoryId">
+			<summary>获取或设置用于服务器报表的快照的唯一标识符。</summary>
+			<returns>一个包含 <see cref="P:Microsoft.Reporting.WebForms.ServerReport.HistoryId" /> 的字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.ReportPath">
+			<summary>获取或设置到服务器上的报表的路径。</summary>
+			<returns>一个字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.ReportServerCredentials">
+			<summary>获取或设置要用于报表服务器的凭据。</summary>
+			<returns>一个 <see cref="T:Microsoft.Reporting.WebForms.ReportServerCredentials" /> 对象，包含与报表服务器配合使用的凭据。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.ReportServerUrl">
+			<summary>获取或设置报表服务器的 URL。</summary>
+			<returns>一个包含报表服务器的 URL 的 <see cref="T:System.Uri" /> 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ServerReport.Timeout">
+			<summary>获取或设置等待服务器通信的毫秒数。</summary>
+			<returns>一个包含服务器超时（以毫秒为单位）的整数值。默认值为 600000 毫秒。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SessionDisabledException">
+			<summary>当 ASP.NET 会话已禁用时发生。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.Severity">
+			<summary>指定警告的严重性。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.Severity.Error">
+			<summary>警告的严重级别为 Error。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.Severity.Warning">
+			<summary>警告的严重级别为 Warning。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SoapVersionMismatchException">
+			<summary>表示当报表服务器版本与报表控件不兼容时发生的异常。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SortEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Sort" /> 事件提供数据。</summary>
+		</member>
+		<member name="M:Microsoft.Reporting.WebForms.SortEventArgs.#ctor(System.String,Microsoft.Reporting.WebForms.SortOrder,System.Boolean)">
+			<summary>构造一个新的 SortEventArgs 对象。</summary>
+			<param name="sortId">排序操作的 ID。</param>
+			<param name="sortDirection">一个指示排序方向的 <see cref="T:Microsoft.Reporting.WebForms.SortOrder" /> 枚举值。 默认值为 none。</param>
+			<param name="clearSort">一个指示是否应该清除所有其他现有排序的 Boolean 值。 默认值为 false。</param>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SortEventArgs.ClearSort">
+			<summary>指示是否应该清除所有其他现有排序。 </summary>
+			<returns>一个指示是否应该清除所有其他现有排序的 Boolean 值。 默认值为 false。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SortEventArgs.SortDirection">
+			<summary>获取指示排序方向的枚举值。 </summary>
+			<returns>一个指示排序方向的 <see cref="T:Microsoft.Reporting.WebForms.SortOrder" /> 枚举值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SortEventArgs.SortId">
+			<summary>获取排序操作的唯一标识符。</summary>
+			<returns>一个包含排序操作的 ID 的字符串。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SortEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="E:Microsoft.Reporting.WebForms.ReportViewer.Sort" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">一个包含事件有关信息的 <see cref="T:Microsoft.Reporting.WebForms.SortEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SortOrder">
+			<summary>指示排序操作的方向。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.SortOrder.Ascending">
+			<summary>指示升序排序。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.SortOrder.Descending">
+			<summary>指示降序排序。</summary>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs">
+			<summary>为 <see cref="E:Microsoft.Reporting.WebForms.LocalReport.SubreportProcessing" /> 事件提供数据。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs.DataSourceNames">
+			<summary>获取子报表数据源名称的列表。</summary>
+			<returns>一个包含子报表的数据源名称的 string 对象列表。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs.DataSources">
+			<summary>返回子报表数据源的集合。</summary>
+			<returns><see cref="T:Microsoft.Reporting.WebForms.ReportDataSource" /> 对象的集合。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs.Parameters">
+			<summary>获取子报表参数的集合。</summary>
+			<returns>包含子报表参数信息的 <see cref="T:Microsoft.Reporting.WebForms.ReportParameterInfoCollection" />。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs.ReportPath">
+			<summary>返回子报表的名称。</summary>
+			<returns>一个包含子报表名称的字符串。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.SubreportProcessingEventHandler">
+			<summary>表示将用来处理 <see cref="T:Microsoft.Reporting.WebForms.ReportViewer" /> 的 <see cref="E:Microsoft.Reporting.WebForms.LocalReport.SubreportProcessing" /> 事件的方法。</summary>
+			<param name="sender">引发事件的对象。</param>
+			<param name="e">一个包含事件有关信息的 <see cref="T:Microsoft.Reporting.WebForms.SubreportProcessingEventArgs" /> 对象。</param>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ValidValue">
+			<summary>表示可能有效的参数值。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ValidValue.Label">
+			<summary>获取有效值的标签。</summary>
+			<returns>一个只读 string 对象。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.ValidValue.Value">
+			<summary>获取有效值。</summary>
+			<returns>一个只读 string 对象。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.Warning">
+			<summary>表示在呈现或处理报表时返回的错误或警告列表。</summary>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Warning.Code">
+			<summary>获取为警告指定的错误代码。 只读。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Warning.Message">
+			<summary>获取描述错误或警告的消息。 只读。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Warning.ObjectName">
+			<summary>获取报表定义中为警告分配的对象的名称。 只读。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Warning.ObjectType">
+			<summary>获取报表定义中导致出现错误或警告的对象的类型。 只读。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="P:Microsoft.Reporting.WebForms.Warning.Severity">
+			<summary>获取错误或警告的严重性类型。 只读。</summary>
+			<returns>一个只读字符串值。</returns>
+		</member>
+		<member name="T:Microsoft.Reporting.WebForms.ZoomMode">
+			<summary>指定 ReportViewer 控件的缩放模式。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ZoomMode.FullPage">
+			<summary>将缩放模式设置为整页。</summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ZoomMode.PageWidth">
+			<summary>将缩放模式设置为页宽。 </summary>
+		</member>
+		<member name="F:Microsoft.Reporting.WebForms.ZoomMode.Percent">
+			<summary>将缩放模式设置为百分比。 </summary>
+		</member>
+	</members>
+</doc>

@@ -1,0 +1,767 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DundasWebOlapDataProviderAdomdNet</name>
+    </assembly>
+    <members>
+        <member name="T:Dundas.Olap.Data.Mdx.MdxQueryBuilder">
+            <summary>
+            Helper class that builds ADOMD MDX query string.
+            </summary>
+            <remarks>
+            <see cref="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetCommandText(Dundas.Olap.Data.CubeDataSchema,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.String,System.Boolean)"/> method takes query <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> objects
+            and returns back an MDX query string.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.#ctor">
+            <summary>
+            Default public constructor.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.#ctor(System.Boolean)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="supportsMultipleSlicerMemberSelection">
+            <b>True</b> if data provider supports selection of multiple dimension members
+            on the Slicer axis.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetCommandText(Dundas.Olap.Data.CubeDataSchema,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.String,System.Boolean)">
+            <summary>
+            Generates ADOMD MDX command string based on requested dimension members and axes.
+            </summary>
+            <param name="cubeDataSchema">
+            Cube data schema.
+            </param>
+            <param name="requestedAxes">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptorCollection"/> object that describes requested axis.
+            </param>
+            <param name="slicerAxis">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that describes the slicer axis.
+            </param>
+            <param name="cubeName">
+            A <b>string</b> value that describes the cube name of the command.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            A <b>bool</b> value that determines whether empty cells are shown in the command.
+            </param>
+            <returns>
+            A <b>string</b> that contains the result MDX query text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetCommandText(Dundas.Olap.Data.CubeDataSchema,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.String,System.Boolean,Dundas.Olap.Data.CellSetPaging,System.Collections.ArrayList,System.String[]@)">
+            <summary>
+            Generates ADOMD MDX command string based on requested dimension members and axes.
+            </summary>
+            <param name="cubeDataSchema">
+            Cube data schema.
+            </param>
+            <param name="requestedAxes">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptorCollection"/> object that describes requested axis.
+            </param>
+            <param name="slicerAxis">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that describes the slicer axis.
+            </param>
+            <param name="cubeName">
+            A <b>string</b> value that describes the cube name of the command.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            A <b>bool</b> value that determines whether empty cells are shown in the command.
+            </param>
+            <returns>
+            A <b>string</b> that contains the result MDX query text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetMeasuresSet(Dundas.Olap.Data.AxisDescriptorCollection,System.Int32@)">
+            <summary>
+            
+            </summary>
+            <param name="requestedAxes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetAxisSetString(Dundas.Olap.Data.AxisDescriptor,System.Boolean)">
+            <summary>
+            Gets axis set string of the query.
+            </summary>
+            <param name="axisDescriptor">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> to get the set string for.
+            </param>
+            <param name="slicer">
+            <b>True</b> if this is a slicer axis.
+            </param>
+            <returns>
+            <b>String</b> that contains specified axis set text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetSortingAndFilteringCommandForSet(Dundas.Olap.Data.AxisDescriptor,System.String)">
+            <summary>
+            Gets sorting and filtering command text for the axis set.
+            </summary>
+            <param name="axisDescriptor">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> to get the set string for.
+            </param>
+            <param name="stringSet">
+            A <b>string</b> that contains current axis set text.
+            </param>
+            <returns>
+            A <b>string</b> that contains original axis set text plus all
+            the filtering and sorting commands.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetConditionOperation(Dundas.Olap.Data.FilterCondition)">
+            <summary>
+            Gets conditional operation command text.
+            </summary>
+            <param name="filterCondition">
+            A <see cref="T:Dundas.Olap.Data.FilterCondition"/> to get the command text for.
+            </param>
+            <returns>
+            A <b>string</b> that contains command text for the specified filter condition
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetTopBottomCommandName(Dundas.Olap.Data.FilterTopBottomType,Dundas.Olap.Data.FilterTopBottomValueType)">
+            <summary>
+            Gets top/bottom filtering command name.
+            </summary>
+            <param name="filterTopBottomType">
+            A <see cref="T:Dundas.Olap.Data.FilterTopBottomType"/> enumeration value that defines type of filter.
+            </param>
+            <param name="filterTopBottomValueType">
+            A <see cref="T:Dundas.Olap.Data.FilterTopBottomValueType"/> enumeration value that defines if 
+            count or percentage are filtered.
+            </param>
+            <returns>
+            A <b>string</b> that contains command text for the specified filter.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetSlicerAxisSetString(Dundas.Olap.Data.AxisDescriptor)">
+            <summary>
+            Gets slicer axis set command text.
+            </summary>
+            <param name="axisDescriptor">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> to get the set command text for.
+            </param>
+            <returns>
+            A <b>string</b> that contains slicer axis command text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetFilterExpression(Dundas.Olap.Data.CubeDataSchema,Dundas.Olap.Data.AxisDescriptor,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="axisDescriptor"></param>
+            <param name="currentSet"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetTotalsOnlyExpression(Dundas.Olap.Data.AxisDescriptor,System.String)">
+            <summary>
+            Totals only
+            </summary>
+            <param name="axisDescriptor"></param>
+            <param name="currentSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetAxisSetString(Dundas.Olap.Data.AxisDescriptor)">
+            <summary>
+            Gets axis set command text.
+            </summary>
+            <param name="axisDescriptor">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> to get the set command text for.
+            </param>
+            <returns>
+            A <b>string</b> that contains axis command text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetSortOrderName(Dundas.Olap.Data.MemberSortingAndFiltering)">
+            <summary>
+            Gets sorting order command text.
+            </summary>
+            <param name="sortingAndFiltering">
+            A <see cref="T:Dundas.Olap.Data.MemberSortingAndFiltering"/> object that defines sorting condition.
+            </param>
+            <returns>
+            A <b>string</b> that contains sorting order command text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetDimensionName(Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Gets dimension name.
+            </summary>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> to get dimension name for.
+            </param>
+            <returns>
+            A <b>string</b> that contains prefixed dimension name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetPrefixedName(System.String)">
+            <summary>
+            Makes sure that specified name starts with the '[' character and
+            ends with the ']' character.
+            </summary>
+            <param name="name">
+            A name to check.
+            </param>
+            <returns>
+            A name that is prefixed with '[' and ']' characters.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetDimensionSetString(Dundas.Olap.Data.DimensionDescriptor,Dundas.Olap.Data.AxisDescriptor,System.Boolean)">
+            <summary>
+            Gets dimension set command text.
+            </summary>
+            <param name="dimensionDescriptor">
+            Dimension descriptor that identifies the dimension.
+            </param>
+            <param name="axisDescriptor">
+            Axis descriptor this dimension belongs to.
+            </param>
+            <param name="slicerAxis">
+            <b>True</b> if this is a slicer axis.
+            </param>
+            <returns>
+            A <b>string</b> that contains the dimension set command text.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetDimensionUniqueName(System.String)">
+            <summary>
+            Gets dimension unique name.
+            </summary>
+            <param name="dimensionName">
+            Dimension name.
+            </param>
+            <returns>
+            Dimension unique name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetLevelUniqueName(System.String,System.String)">
+            <summary>
+            Gets level unique name.
+            </summary>
+            <param name="dimensionName">
+            Dimension name.
+            </param>
+            <param name="levelName">
+            Level name.
+            </param>
+            <returns>
+            Level unique name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetMemberUniqueName(System.String,Dundas.Olap.Data.DimensionMemberDescriptor)">
+            <summary>
+            Gets member unique name.
+            </summary>
+            <param name="dimensionName">
+            Dimension name.
+            </param>
+            <param name="memberDescriptor">
+            Member descriptor.
+            </param>
+            <returns>
+            Member unique name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetAxisName(System.Int32)">
+            <summary>
+            Gets the name of the axis by index.
+            </summary>
+            <param name="axisIndex">
+            Axis index.
+            </param>
+            <returns>
+            Axis name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.Mdx.MdxQueryBuilder.GetRangeString(Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Returns the list of members in range for the given dimension descriptor.
+            </summary>
+            <param name="dimensionDescriptor">Dimension Descriptor</param>
+            <returns>result string.</returns>
+        </member>
+        <member name="T:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider">
+            <summary>
+            Multidimensional data provider that uses ADOMD for .NET to connect and 
+            retrieve data from the multidimensional data source.
+            </summary>
+            <remarks>
+            ADOMD for .NET is a .NET object model, used for building client applications that 
+            access an XML for an Analysis 1.1 compliant data provider, such as that provided by 
+            the XML for Analysis 1.1 SDK.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.#ctor">
+            <summary>
+            Object constructor.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Object constructor used by ISerializable interface.
+            </summary>
+            <param name="info">
+            A <see cref="T:System.Runtime.Serialization.SerializationInfo"/> object that represents the serialized 
+            information to be loaded.
+            </param>
+            <param name="c">
+            A <see cref="T:System.Runtime.Serialization.StreamingContext"/> object.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CheckConnection">
+            <summary>
+            Checks the ADOMD connection status and tries to reconnect 
+            in case the connection is broken or closed.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Connect">
+            <summary>
+            Connects to the data source using the current connection string.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Disconnect(System.Boolean)">
+            <summary>
+            Disconnects from the data source and optionally disposes 
+            the connection object.
+            </summary>
+            <param name="disposeConnection">
+            <b>True</b> if connection object should be disposed.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CreateNewMember(Microsoft.AnalysisServices.AdomdClient.Member,Dundas.Olap.Data.Level,Dundas.Olap.Data.Member,System.Boolean)">
+            <summary>
+            Creates a new dimension member class base on the ADOMD member object.
+            </summary>
+            <param name="member">
+            ADOMD member object.
+            </param>
+            <param name="parentLevel">
+            New member dimension level.
+            </param>
+            <param name="parentMember">
+            New member parent member.
+            </param>
+            <param name="isCellSet">
+            Indicates that the member is created from the cellset.
+            </param>
+            <returns>
+            Newly created dimension member object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetDimensionType(Microsoft.AnalysisServices.AdomdClient.DimensionTypeEnum)">
+            <summary>
+            Converts the ADOMD dimension type.
+            </summary>
+            <param name="adomdDimensionType">
+            The ADOMD dimension type.
+            </param>
+            <returns>
+            The dimension type.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetLevelType(Microsoft.AnalysisServices.AdomdClient.LevelTypeEnum)">
+            <summary>
+            Converts the ADOMD dimension level type.
+            </summary>
+            <param name="adomdLevelType">
+            ADOMD dimension level type.
+            </param>
+            <returns>
+            Dimension level type.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetNativeMember(Dundas.Olap.Data.Member)">
+            <summary>
+            Lazy loads the native ADOMD member for the given OLAP member.
+            </summary>
+            <param name="member"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetSchemaFromCache(System.String)">
+            <summary>
+            Returns the schema for the specified cube from the cache if successful,
+            and returns null in a cache miss.
+            </summary>
+            <param name="cubeName">Name of the schema to retrieve from the cache</param>
+            <returns>The cached copy of the schema if successful, null otherwise</returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.AddSchemaToCache(Dundas.Olap.Data.CubeDataSchema)">
+            <summary>
+            Adds a schema to the cache.
+            </summary>
+            <param name="schema">Schema to add to the cache</param>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.IsTopLevelMember(Dundas.Olap.Data.Member)">
+            <summary>
+            Checks if the given member is top level member.
+            </summary>
+            <param name="member">member to be checked</param>
+            <returns>true if member is top level</returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetAvailableCatalogNames">
+            <summary>
+            Gets an array of available catalog names.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetCubesInfo">
+            <summary>
+            Gets the data provider cube information collection.  
+            </summary>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CubeInfoCollection"/> object that contains a collection of cube 
+            information objects or <b>null</b> if multiple cubes are not supported.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetDataSchema(System.String)">
+            <summary>
+            Gets the data schema for the specified cube.
+            </summary>
+            <param name="cubeName">
+            A <b>string</b> that contains the cube name to get the data schema for.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CubeDataSchema"/> object for the specified cube.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetLevelMembers(Dundas.Olap.Data.Level)">
+            <summary>
+            Gets the dimension level members on-demand. This method is used for optimization
+            purposes when the data provider supports MembersOnDemand.
+            </summary>
+            <param name="level">
+            Dimension <see cref="T:Dundas.Olap.Data.Level"/> object to get the members for.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.MemberCollection"/> object that contains collection of child level members.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetLevelMembers(Dundas.Olap.Data.Level,System.Int64,System.Int32)">
+            <summary>
+            Gets the dimension level members on-demand. This method is used for optimization
+            purposes when the data provider supports MembersOnDemand.
+            </summary>
+            <param name="level">
+            Dimension <see cref="T:Dundas.Olap.Data.Level"/> object to get the members for.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.MemberCollection"/> object that contains collection of child level members.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetParentMember(Dundas.Olap.Data.Member)">
+            <summary>
+            Gets the parent member of specified member on-demand. 
+            </summary>
+            <param name="member">
+            Dimension <see cref="T:Dundas.Olap.Data.Member"/> to get the parent member for.
+            </param>
+            <returns>
+            A parent <see cref="T:Dundas.Olap.Data.Member"/> or <b>null</b> for the top-level membber.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetChildMembers(Dundas.Olap.Data.Member)">
+            <summary>
+            Gets the child members of specified member on-demand. This method is used for optimization
+            purposes when the data provider supports MembersOnDemand.
+            </summary>
+            <param name="member">
+            Dimension <see cref="T:Dundas.Olap.Data.Member"/> to get the child members for.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.MemberCollection"/> object that contains collection of child members.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,Dundas.Olap.Data.CubeDataSchema,System.Boolean,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.Boolean)">
+            <summary>
+            Retrieves multidimensional data from the provider.
+            </summary>
+            <param name="cubeName">
+            A <b>string</b> value that represents the cube name to retrieve data from.
+            </param>
+            <param name="cubeDataSchema">
+            Cube data schema.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            <b>True</b> if only non-empty cells should be retrieved.
+            </param>
+            <param name="requestedAxes">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptorCollection"/> object that contains a collection of requested <b>AxisDescriptors</b>.
+            </param>
+            <param name="slicerAxis">
+            A slicer <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object.
+            </param>
+            <returns>
+            A result <see cref="T:Dundas.Olap.Data.CellSet"/> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,Dundas.Olap.Data.CubeDataSchema,System.Boolean,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor)">
+            <summary>
+            Retrieves multidimensional data from the provider.
+            </summary>
+            <param name="cubeName">
+            A <b>string</b> value that represents the cube name to retrieve data from.
+            </param>
+            <param name="cubeDataSchema">
+            Cube data schema.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            <b>True</b> if only non-empty cells should be retrieved.
+            </param>
+            <param name="requestedAxes">
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptorCollection"/> object that contains a collection of requested <b>AxisDescriptors</b>.
+            </param>
+            <param name="slicerAxis">
+            A slicer <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object.
+            </param>
+            <returns>
+            A result <see cref="T:Dundas.Olap.Data.CellSet"/> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,System.Boolean,System.String)">
+            <summary>
+            Retrieves multidimensional data from the provider.
+            </summary>
+            <param name="cubeName">
+            A <b>string</b> value that represents the cube name to retrieve data from.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            <b>True</b> if only non-empty cells should be retrieved.
+            </param>
+            <param name="query">
+            MDX query string.
+            </param>
+            <returns>
+            A result <see cref="T:Dundas.Olap.Data.CellSet"/> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,System.Boolean,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Retrieves multidimensional data from the provider.
+            </summary>
+            <param name="cubeName">
+            A <b>string</b> value that represents the cube name to retrieve data from.
+            </param>
+            <param name="nonEmptyCellsOnly">
+            <b>True</b> if only non-empty cells should be retrieved.
+            </param>
+            <param name="query">
+            MDX query string.
+            </param>
+            <returns>
+            A result <see cref="T:Dundas.Olap.Data.CellSet"/> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.GetCell(Dundas.Olap.Data.CellSet,System.Int32[])">
+            <summary>
+            Retrieves a single cell using an index for each data axis.
+            </summary>
+            <param name="cellSet">
+            A <see cref="T:Dundas.Olap.Data.CellSet"/> object to get the cell from.
+            </param>
+            <param name="indexes">
+            Array of indexes for each axes.
+            </param>
+            <returns>
+            Requested <see cref="T:Dundas.Olap.Data.Cell"/> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Close">
+            <summary>
+            Closes the connection to the database.
+            </summary>
+            <remarks>
+            It then releases the connection to the connection pool, or closes the connection if connection pooling is disabled.
+            An application can call Close more than one time without generating an exception.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Open">
+            <summary>
+            Opens the connection to the database.
+            </summary>
+            <remarks>
+            This method can be called to ensure that connection with the database is established.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the target object.
+            </summary>
+            <param name="info">
+            The SerializationInfo to populate with data.
+            </param>
+            <param name="context">
+            The destination (see StreamingContext) for this serialization.
+            </param>
+            <exception cref="T:System.Security.SecurityException">
+            The caller does not have the required permission.
+            </exception>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Dispose">
+            <summary>
+            Disposes data provider object.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Sends server control content to a provided <see cref="T:System.Web.UI.HtmlTextWriter"></see> object, which writes the content to be rendered on the client.
+            </summary>
+            <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"></see> object that receives the server control content.</param>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CommandTimeout">
+            <summary>
+            Gets or sets the time to wait for a command to run before terminating the 
+            attempt to run the command and generating an error. 
+            <seealso cref="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,Dundas.Olap.Data.CubeDataSchema,System.Boolean,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.Boolean)"/>
+            </summary>
+            <value>
+            An <b>Integer</b> that contains the time, in seconds, to wait for the 
+            command to run using the <see cref="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,Dundas.Olap.Data.CubeDataSchema,System.Boolean,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.Boolean)"/> method.
+            </value>
+            <remarks>
+            If this property is set to <b>0</b>, the ExecuteCellSet method waits 
+            indefinitely while attempting to run a command.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CurrentCellSet">
+            <summary>
+            Gets current cellset.
+            <seealso cref="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ExecuteCellSet(System.String,Dundas.Olap.Data.CubeDataSchema,System.Boolean,Dundas.Olap.Data.AxisDescriptorCollection,Dundas.Olap.Data.AxisDescriptor,System.Boolean)"/>
+            </summary>
+            <value>
+            A <see cref="T:Dundas.Olap.Data.CellSet"/> that contains the last retrieved data from the data provider.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ConnectionString">
+            <summary>
+            Gets or sets ADOMD connection string.
+            </summary>
+            <value>
+            A <b>string</b> value that contains the ADOMD .NET connection string.
+            Refer to the ADOMD .NET documentation for more details.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.EnableViewState">
+            <summary>
+            This member overrides <see cref="P:System.Web.UI.Control.EnableViewState"/> property
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Visible">
+            <summary>
+            This member overrides the <see cref="P:System.Web.UI.Control.Visible"/> property.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.UseImpersonation">
+            <summary>
+            Indicates that current identity information should be included in connection pool.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.SessionKey">
+            <summary>
+            Session key used for storing cube schemas.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CacheType">
+            <summary>
+            Gets or sets the location of the cube schema cache.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.SchemaMap">
+            <summary>
+            Gets or sets the cached schema map.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.CatalogName">
+            <summary>
+            Gets current catalog name from the data provider.
+            </summary>
+            <value>
+            A <b>string</b> value that contains current catalog name.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.SupportsMultipleSlicerMemberSelection">
+            <summary>
+            Checks if data provider supports selection of multiple dimension members on the 
+            Slicer axis.
+            </summary>
+            <value>
+            Returns <b>true</b> if multiple member selection is supported on the Slicer axis.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.IsConnected">
+            <summary>
+            Checks if data provider is currently connected to the data source.
+            </summary>
+            <value>
+            <b>True</b> if data provider is currently connected.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.SupportsMembersOnDemand">
+            <summary>
+            Gets the flag that indicates if the data provider supports 
+            on-demand member retrieval.
+            </summary>
+            <remarks>
+            Retrieving metadata about all the members in the cube can be a time-consuming
+            process. This property indicates if the data provider can retrieve members metadata
+            only on-demand.
+            </remarks>
+            <value>
+            A <b>boolean</b> value that indicates if the data provider supports on-demand
+            member retrieval.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.SupportsCubes">
+            <summary>
+            Gets the flag that indicates if the data provider 
+            supports multiple cubes.
+            </summary>
+            <value>
+            A <b>boolean</b> value that indicates if the data provider supports multiple cubes.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ControlDesigner">
+            <summary>
+            OLAP Manager Web control designer.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.ControlDesigner.GetDesignTimeHtml">
+            <summary>
+            Gets the design time HTML source that present the control.
+            </summary>
+            <returns>
+            HTML source as a string.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Pool.#cctor">
+            <summary>
+            Initializes the <see cref="T:Pool"/> class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Pool.EnsureConnectionOpened(Microsoft.AnalysisServices.AdomdClient.AdomdConnection)">
+            <summary>
+            Ensures that the connection is opened.
+            </summary>
+            <param name="connection">The connection.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Pool.ObtainConnection(System.String,System.Boolean)">
+            <summary>
+            Obtains a conection from the pool.
+            </summary>
+            <param name="connectionString">The connection string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Pool.GetUserConnectionString(System.String,System.Boolean)">
+            <summary>
+            Returns connection string with user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Data.AdomdNet.AdomdNetDataProvider.Pool.ReleaseConnection(Microsoft.AnalysisServices.AdomdClient.AdomdConnection,System.Boolean)">
+            <summary>
+            Releases the connection to the pool.
+            </summary>
+            <param name="connection">The connection.</param>
+        </member>
+    </members>
+</doc>

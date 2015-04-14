@@ -1,0 +1,63 @@
+ Log Entry : 
+04/11/2015 12:28:07
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=123456&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:32:38
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=123456&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:34:56
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=12345678&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:36:40
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=12345678&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:37:34
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=12345678&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:39:04
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=123456789&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:40:02
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=123456789&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:40:02
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=12345678&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________
+ Log Entry : 
+04/11/2015 12:40:02
+Error in: http://localhost:21641/Web/Handler/Login.ashx?UserID=jtadmin1&Password=123456789&action=chkCompanyCD. Error Message:System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 Login.ProcessRequest(HttpContext context) 位置 c:\Users\Administrator\Desktop\jterp2015-04-10\jterp201522\Web\Handler\Login.ashx:行号 489
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+__________________________

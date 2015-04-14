@@ -1,0 +1,194 @@
+﻿@media print
+{
+	.button
+	{
+		display: none;
+	}
+}
+body
+{
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+#body
+{
+	width: 800px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+.order
+{
+	width: 800px;
+	border-collapse: collapse;
+}
+.tdinput
+{
+	border-width: 0pt;
+	background-color: #ffffff;
+	height: 21px;
+	width: 80%;
+}
+.order td
+{
+	font-size: 12px;
+	border: 1px solid black;
+}
+.order td
+{
+	width: 100px;
+	height: 30px;
+	text-align: center;
+}
+.cell1
+{
+	width: 150px;
+}
+.cellStyle
+{
+	width: 105%;
+}
+.cellDetial
+{
+	border: 1px;
+	border-color: Black;
+}
+.style
+{
+	width: 150px;
+}
+.busBtn
+{
+	background: url(../../Images/default/btnbg.gif) 0px -5px;
+	border: 1px solid #cccccc;
+	padding-top: 2px;
+	cursor: pointer;
+	width: 100px;
+}
+.busBtnOnclick
+{
+	background: url(../../Images/default/btnbg2-1.png) 0px -5px;
+	border: 1px solid #cccccc;
+	padding-top: 2px;
+	cursor: pointer;
+	width: 100px;
+}
+.detailOfCheck
+{
+	font-size: 12px;
+	font-family: 宋体;
+}
+.td_list_title
+{
+	color: #044d77;
+	font-weight: bold;
+	background-color: #a9c6e7;
+	width: 100%;
+	border: 0;
+}
+.td_list_fields
+{
+	color: #044d77;
+	background-color: #dfebf8;
+}
+.td_list_field
+{
+	color: #000000;
+	text-align: center;
+	background-color: #ffffff;
+	border-bottom: solid 1px #000000;
+	border-left: solid 1px #000000;
+}
+.td_list_field-r
+{
+	color: #000000;
+	text-align: center;
+	background-color: #ffffff;
+	border-bottom: solid 1px #000000;
+	border-right: solid 1px #000000;
+	border-left: solid 1px #000000;
+}
+.newTb
+{
+	text-align: center;
+	font-size: 12px;
+	width: 100%;
+	border-width: 1px;
+}
+.newTh
+{
+	border: solid 1px #000000;
+	height: 25px;
+}
+.newTc
+{
+	padding-top: 2px;
+	border: solid 1px #000000;
+}
+.medno
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medName
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medType
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medKind
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:5%;
+}
+.medCount
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:8%;
+}
+.medGuidPrice
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:8%;
+}
+.medSupplyPrice
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:9%;
+}
+.medDiscPrice
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medTotalPrice
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medLimitArea
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}
+.medRemark
+{
+	border: solid 1px #000000;
+	height: 25px;
+	width:10%;
+}

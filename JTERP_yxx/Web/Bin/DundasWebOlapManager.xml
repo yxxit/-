@@ -1,0 +1,4020 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DundasWebOlapManager</name>
+    </assembly>
+    <members>
+        <member name="P:Dundas.Olap.Manager.LocalizationParams.ControlClassNames">
+            <summary>
+            Types what are serializaed by type name (kakogo-to hera)
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.LocalizationParams.SerializableTypes">
+            <summary>
+            All serializable types
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.LocalizationParams.ClassPropertyHash">
+            <summary>
+            Hashtable of properties what should be serialized for each class
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ILocalizableControl">
+            <summary>
+            Localizable control 
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ILocalizableControl.SaveLocalization(System.Xml.XmlElement)">
+            <summary>
+            Prepare control for rendering in localization
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ILocalizableControl.Parameters">
+            <summary>
+            Registers control in localization manager
+            </summary>
+            <param name="manager"></param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ToolbarMenuStyle">
+            <summary>
+            Defines the toolbar popup menu style
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.ToolbarMenuStyle.Menu">
+            <summary>
+            The command will deploy menu as popup
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.ToolbarMenuStyle.Table">
+            <summary>
+            The command will show table with icons.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.IToolbarControl">
+            <summary>
+            Represents a toolbar control.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.IToolbarControl.Invalidate">
+            <summary>
+            Invalidates this instance. Force rerendering of the OlapToolbar control in callback stages.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IToolbarControl.ToolbarClientProvider">
+            <summary>
+            Gets the toolbar client provider.
+            </summary>
+            <value>The toolbar client provider.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ITollbarClientProvider">
+            <summary>
+            Represents a client which provides list of <see cref="T:Dundas.Olap.Manager.IToolbarClient"/> instances.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ITollbarClientProvider.ToolbarClients">
+            <summary>
+            Gets the list of toolbar clients.
+            </summary>
+            <value>The toolbar clients.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.IToolbarClient">
+            <summary>
+            Defines a control interface which deploys command into connected toolbar.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IToolbarClient.ToolbarClientID">
+            <summary>
+            Gets the toolbar client ID.
+            </summary>
+            <value>The toolbar client ID.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IToolbarClient.Commands">
+            <summary>
+            Gets the commands.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IToolbarClient.GroupOrderBase">
+            <summary>
+            Gets the Z order base.
+            </summary>
+            <value>The Z order base.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IToolbarClient.IsChanged">
+            <summary>
+            Gets a value indicating whether this instance is changed.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is changed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ICommand">
+            <summary>
+            Represents a OlapToolbar item.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ICommand.Execute(System.String)">
+            <summary>
+            Executes the command with specified UI parameters.
+            </summary>
+            <param name="UIParameters">The UI parameters.</param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.Owner">
+            <summary>
+            Gets the owner.
+            </summary>
+            <value>The owner.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.CommandID">
+            <summary>
+            Gets the command ID.
+            </summary>
+            <value>The command ID.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.DisplayText">
+            <summary>
+            Gets the display text.
+            </summary>
+            <value>The display text.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.Description">
+            <summary>
+            Gets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.Image">
+            <summary>
+            Gets the image URL.
+            </summary>
+            <value>The image URL.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.UIParameters">
+            <summary>
+            Gets the UI parameters.
+            </summary>
+            <value>The UI parameters.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.IsEnabled">
+            <summary>
+            Gets a value indicating whether this instance is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.IsVisible">
+            <summary>
+            Gets a value indicating whether this instance is visible.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is visible; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.IsToggled">
+            <summary>
+            Gets a value indicating whether this instance is toggled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is toggled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.IsSeparator">
+            <summary>
+            Gets a value indicating whether this instance is separator.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is separator; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.IsSpace">
+            <summary>
+            Gets a value indicating whether this instance is space.
+            </summary>
+            <value><c>true</c> if this instance is space; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.ForcePostback">
+            <summary>
+            Gets a value indicating whether or not postback to be executed instead of callback.
+            </summary>
+            <value><c>true</c> if postback must be executed; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.ItemOrderIndex">
+            <summary>
+            Gets the Z order.
+            </summary>
+            <value>The Z order.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.Commands">
+            <summary>
+            Gets the subcommands list.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ICommand.ToolbarMenuStyle">
+            <summary>
+            Gets the toolbar menu style.
+            </summary>
+            <value>The toolbar menu style.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommand">
+            <summary>
+            Represents a toolbar command, which contains an action or 
+            functionality that developers can use to build their own customized 
+            toolbar.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapToolbarCommand.Separator">
+            <summary>
+            Defines text for toolbar item which will be interpreded as separator.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapToolbarCommand.Spacer">
+            <summary>
+            Defines text for toolbar item which will be interpreded as spacer.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommand"/> class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor(Dundas.Olap.Manager.IToolbarClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommand"/> class.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="!:CustomToolbarCommand"/> class.
+            </summary>
+            <param name="commandName">Name of the command.</param>
+            <param name="imageUrl">The image URL.</param>
+            <param name="displayText">The display text.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor(Dundas.Olap.Manager.OlapToolbarCommand.ExecuteCommand,Dundas.Olap.Manager.OlapToolbarCommand.GetDefaultImage,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OlapToolbarCommand"/> class.
+            </summary>
+            <param name="executeCallback">The execute callback.</param>
+            <param name="getImageCallback">The get image callback.</param>
+            <param name="commandName">Name of the command.</param>
+            <param name="displayText">The display text.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor(Dundas.Olap.Manager.OlapToolbarCommand.ExecuteCommand,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommand"/> class.
+            </summary>
+            <param name="executeCallback">The execute callback.</param>
+            <param name="commandName">Name of the command.</param>
+            <param name="imageUrl">The image URL.</param>
+            <param name="displayText">The display text.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.#ctor(Dundas.Olap.Manager.OlapToolbarCommand.ExecuteCommand,Dundas.Olap.Manager.OlapToolbarCommand.GetDefaultImage)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommand"/> class.
+            </summary>
+            <param name="parent">The parent.</param>
+            <param name="executeCallback">The execute callback.</param>
+            <param name="getImageCallback">The get image callback.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ShouldSerializeImage">
+            <summary>
+            Checks if text is modified and should be serialized.
+            </summary>
+            <returns>True if text where modified and they need to be serialized.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ShouldSerializeText">
+            <summary>
+            Checks if text is modified and should be serialized.
+            </summary>
+            <returns>True if text where modified and they need to be serialized.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ResetText">
+            <summary>
+            Checks if text is modified and should be serialized.
+            </summary>
+            <returns>True if text where modified and they need to be serialized.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ShouldSerializeDescription">
+            <summary>
+            Checks if description is modified and should be serialized.
+            </summary>
+            <returns>True if description where modified and they need to be serialized.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ResetDescription">
+            <summary>
+            Resets the description is modified.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.Assign(Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Assigns the fields of this instance with specified command.
+            </summary>
+            <param name="command">The command.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.DesignMode">
+            <summary>
+            Designs the mode.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.Invalidate">
+            <summary>
+            Invalidates this instance.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#Execute(System.String)">
+            <summary>
+            Executes the command with specified UI parameters.
+            </summary>
+            <param name="UIParameters">The UI parameters.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.OnExecute(System.Object,Dundas.Olap.Manager.OlapToolbarCommand.CommandExecuteEventArgs)">
+            <summary>
+            Called when command is execute.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="e">The <see cref="!:CustomToolbarCommand.CommandExecuteEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Image">
+            <summary>
+            Gets or sets the image of the command. 
+            </summary>
+            <value>
+            A string value, representing the command's image name. 
+            </value>
+            <remarks>
+            The image name can be a file name, URL for the Web control. 
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Enabled">
+            <summary>
+            Gets or sets the enabled flag for the command. 
+            Determines if the command can be executed.
+            </summary>
+            <value>
+            <b>True</b> if command can be executed, <b>false</b> otherwise. Defaults is
+            <b>true</b>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Visible">
+            <summary>
+            Gets or sets the visibility attribute of the command on the toolbar. 
+            </summary>
+            <value>		
+            <c>True</c> if command is visible, <c>false</c> otherwise. Default is
+            <c>true</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Toggled">
+            <summary>
+            Gets or sets a value that determines the checked style appearance of the command.
+            </summary>
+            <value>
+            The toggled flag for the command.
+            </value>
+            <remarks>
+            In the toolbar toggled button appears sunken when clicked 
+            and retains the sunken appearance until clicked again.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Text">
+            <summary>
+            Gets or sets the text for the command. This is displayed as text on the toolbar sub-menu.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Description">
+            <summary>
+            Gets or sets the description text for the command. This is displayed as a tooltip on the toolbar.
+            </summary>
+            <value>
+            The description text for the command.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.ItemPriority">
+            <summary>
+            Gets or sets the index of the item order.
+            </summary>
+            <value>The index of the item order.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.CommandName">
+            <summary>
+            Gets the name of the command.
+            </summary>
+            <value>The name of the command.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Parameters">
+            <summary>
+            Gets or sets the optional parameters of the command.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Parent">
+            <summary>
+            Gets or sets the parent IToolbarClient control.
+            </summary>
+            <value>The parent IToolbarClient control.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.PopupStyle">
+            <summary>
+            Gets or sets the popup style of the command.
+            </summary>
+            <value>The popup style.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.RequiresPostback">
+            <summary>
+            Gets or sets a value that indicates if the command requires postback for execution.
+            </summary>
+            <value><c>true</c> if the command requires postback; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Commands">
+            <summary>
+            Gets the subcommands list.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.ParentControl">
+            <summary>
+            Gets the parent control.
+            </summary>
+            <value>The parent control.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#Owner">
+            <summary>
+            Gets the owner.
+            </summary>
+            <value>The owner.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#CommandID">
+            <summary>
+            Gets the command ID.
+            </summary>
+            <value>The command ID.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#DisplayText">
+            <summary>
+            Gets the display text.
+            </summary>
+            <value>The display text.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#Description">
+            <summary>
+            Gets the description.
+            </summary>
+            <value>The description.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#Image">
+            <summary>
+            Gets or sets the image of the command. 
+            </summary>
+            <value>
+            A string value, representing the command's image name. 
+            </value>
+            <remarks>
+            The image name can be a file name, URL for the Web control. 
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#UIParameters">
+            <summary>
+            Gets the UI parameters.
+            </summary>
+            <value>The UI parameters.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#IsEnabled">
+            <summary>
+            Gets a value indicating whether this instance is enabled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#IsVisible">
+            <summary>
+            Gets a value indicating whether this instance is visible.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is visible; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#IsToggled">
+            <summary>
+            Gets a value indicating whether this instance is toggled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is toggled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#IsSeparator">
+            <summary>
+            Gets a value indicating whether this instance is separator.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is separator; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#IsSpace">
+            <summary>
+            Gets a value indicating whether this instance is space.
+            </summary>
+            <value><c>true</c> if this instance is space; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#ForcePostback">
+            <summary>
+            Gets a value indicating whether or not postback to be executed instead of callback.
+            </summary>
+            <value><c>true</c> if to execute postback; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#ItemOrderIndex">
+            <summary>
+            Gets the Z order.
+            </summary>
+            <value>The Z order.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#Commands">
+            <summary>
+            Gets the subcommands list.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.Dundas#Olap#Manager#ICommand#ToolbarMenuStyle">
+            <summary>
+            Gets the toolbar menu style.
+            </summary>
+            <value>The toolbar menu style.</value>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapToolbarCommand.Execute">
+            <summary>
+            Occurs when the toolbar item is selected.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.Converter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            This method overrides CanConvertTo from TypeConverter. This is called when someone
+            wants to convert an instance of object to another type.  Here,
+            only conversion to an InstanceDescriptor is supported.
+            </summary>
+            <param name="context">Descriptor context.</param>
+            <param name="destinationType">Destination type.</param>
+            <returns>True if object can be converted.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.Converter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            This code performs the actual conversion from an object to an InstanceDescriptor.
+            </summary>
+            <param name="context">Descriptor context.</param>
+            <param name="culture">Culture information.</param>
+            <param name="value">Object value.</param>
+            <param name="destinationType">Destination type.</param>
+            <returns>Converted object.</returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommand.ExecuteCommand">
+            <summary>
+            Represents the method that will handle the Click event from the OlapToolbar. 
+            </summary>
+            <param name="uIParameters">Parameters dispatched from the ICommand</param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommand.GetDefaultImage">
+            <summary>
+            Represents the method that will return the image url in runtime. 
+            </summary>
+            <returns>The image url</returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommand.ExecuteEventHandler">
+            <summary>
+            Represents the method that handles a toolbar click event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommand.CommandExecuteEventArgs">
+            <summary>
+            Provides data for the CustomToolbarCommand.Execute event. 
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommand.CommandExecuteEventArgs.#ctor(Dundas.Olap.Manager.OlapToolbarCommand)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommandExecuteEventArgs"/> class.
+            </summary>
+            <param name="command">The command.</param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.CommandExecuteEventArgs.Command">
+            <summary>
+            Gets the command.
+            </summary>
+            <value>The command.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommand.CommandExecuteEventArgs.CommandName">
+            <summary>
+            Gets the command ID.
+            </summary>
+            <value>The command ID.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarSeparator">
+            <summary>
+            Represents a toolbar item as separator.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSeparator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarSeparator"/> class.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarSpacer">
+            <summary>
+            Represents a toolbar item as separator.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSpacer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarSpacer"/> class.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ToolbarSeparatorPlacement">
+            <summary>
+            Specifies where the separator is placed between groups of items on the toolbar.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.ToolbarSeparatorPlacement.BeforeGroup">
+            <summary>
+            The separator is shown before the group of toolbar items.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.ToolbarSeparatorPlacement.AfterGroup">
+            <summary>
+            The separator is shown after the group of toolbar items.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.ToolbarSeparatorPlacement.None">
+            <summary>
+            The separator is not shown.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarSettings">
+            <summary>
+            Represents a toolbar items and properties for <see cref="!:OlapToolbar"/>;
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OlapToolbarSetup"/> class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.#ctor(Dundas.Olap.Manager.IToolbarClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OlapToolbarSetup"/> class.
+            </summary>
+            <param name="owner">The client.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.OwnerControl_Init(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Init event of the OwnerControl control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.ShouldSerializeGroupPriority">
+            <summary>
+            Shoulds the serialize group priority.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapToolbarSettings.separators">
+            <summary>
+            Separators container
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.GetDefaultOrderBase">
+            <summary>
+            Gets the default order base.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.IsInitalized">
+            <summary>
+            Determines whether this instance is initalized.
+            </summary>
+            <returns>
+            	<c>true</c> if this instance is initalized; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.Invalidate">
+            <summary>
+            Invalidates the olap toolbar.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarSettings.GetEmbededCommands">
+            <summary>
+            Gets the embeded commands. The method must be overrided to provide default toolbar items.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.OwnerControl">
+            <summary>
+            Gets the owner control.
+            </summary>
+            <value>The owner control.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Owner">
+            <summary>
+            Gets the owner.
+            </summary>
+            <value>The owner.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.OlapManager">
+            <summary>
+            OlapManager object.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.GroupPriority">
+            <summary>
+            Gets or sets the group priority of the OLAP Toolbar command.
+            </summary>
+            <value>The group priority.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.SeparatorPlacement">
+            <summary>
+            Gets or sets the separator placement of the OLAP Toolbar command.
+            </summary>
+            <value>The olap toolbar order base.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Commands">
+            <summary>
+            Gets the commands.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.ShowInToolbar">
+            <summary>
+            Gets or sets a value indicating whether or not toolbar items are to be shown.
+            </summary>
+            <value><c>true</c> if toolbar items are shown; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Separators">
+            <summary>
+            Separators list
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Dundas#Olap#Manager#IToolbarClient#ToolbarClientID">
+            <summary>
+            Gets the toolbar client ID.
+            </summary>
+            <value>The toolbar client ID.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Dundas#Olap#Manager#IToolbarClient#Commands">
+            <summary>
+            Gets the commands.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Dundas#Olap#Manager#IToolbarClient#GroupOrderBase">
+            <summary>
+            Gets the Z order base.
+            </summary>
+            <value>The Z order base.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarSettings.Dundas#Olap#Manager#IToolbarClient#IsChanged">
+            <summary>
+            Gets a value indicating whether this instance is changed.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is changed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapToolbarCommandCollection">
+            <summary>
+            Replesents collection of OlapToolbarCommand items.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.#ctor(Dundas.Olap.Manager.IToolbarClient)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommandCollection"/> class.
+            </summary>
+            <param name="parent">The parent.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.Add(Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Adds an <see cref="T:Dundas.Olap.Manager.ICommand"/> object to the end of the collection.
+            </summary>
+            <param name="command">
+            The <see cref="T:Dundas.Olap.Manager.ICommand"/> object to be added to the end of the collection. The node cannot be null;
+            </param>
+            <returns>
+            The collection index at which the node has been added.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.IndexOf(Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Returns the zero-based index of the first occurrence of a <see cref="T:Dundas.Olap.Manager.ICommand"/> value in the collection. 
+            </summary>
+            <param name="command">The <see cref="T:Dundas.Olap.Manager.ICommand"/> object to locate in the collection.</param>
+            <returns>The zero-based index of the first occurrence of node within the entire collection, if found; otherwise, -1.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.Insert(System.Int32,Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Inserts an <see cref="T:Dundas.Olap.Manager.ICommand"/>element into the collection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted. </param>
+            <param name="command">The <see cref="T:Dundas.Olap.Manager.ICommand"/> object to insert. </param>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            index is less than zero.<br/> -or- <br/> index is greater than <see cref="P:System.Collections.CollectionBase.Count"/>.
+            </exception>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.Remove(Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Removes the first occurrence of a specific <see cref="T:Dundas.Olap.Manager.ICommand"/> object from the collection
+            </summary>
+            <param name="command">The <see cref="T:Dundas.Olap.Manager.ICommand"/> object to remove from the collection.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.Contains(Dundas.Olap.Manager.ICommand)">
+            <summary>
+            Determines whether an element is in the colleciton.
+            </summary>
+            <param name="command">The <see cref="T:Dundas.Olap.Manager.ICommand"/> object to locate in the collection. </param>
+            <returns>true if item is found in the collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.AddRange(System.Collections.Generic.IEnumerable{Dundas.Olap.Manager.ICommand})">
+            <summary>
+            Adds the range of commands.
+            </summary>
+            <param name="commands">The commands list.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.ToGenericList">
+            <summary>
+            Convert the collection to generic list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.OnClear">
+            <summary>
+            Performs additional processes when clearing the contents of the <see cref="T:Dundas.Olap.Manager.OlapToolbarCommandCollection"/> instance
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            Performs additional processes after inserting a new 
+            element into the collection instance.
+            </summary>
+            <param name="index">The zero-based index at which to insert value.</param>
+            <param name="value">The new value of the element at index. </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Performs additional processes after removing an 
+            element from the collection instance.
+            </summary>
+            <param name="index">The zero-based index at which value can be found. </param>
+            <param name="value">The value of the element to remove from index.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.OnValidate(System.Object)">
+            <summary>
+            Performs additional processes when validating a value.
+            </summary>
+            <param name="value">The object to validate.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.System#Collections#IList#Clear">
+            <summary>
+            Removes all items from the collection.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.IList_Add(System.Object)">
+            <summary>
+            IList_Add helper
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapToolbarCommandCollection.System#Collections#IList#Add(System.Object)">
+            <summary>
+            Adds an item to the collection.
+            </summary>
+            <param name="value">Value to add</param>
+            <returns>The position into which the new element was inserted.</returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommandCollection.Parent">
+            <summary>
+            Gets or sets the parent IToolbarClient control.
+            </summary>
+            <value>The parent IToolbarClient control.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapToolbarCommandCollection.Item(System.Int32)">
+            <summary>
+            Gets and sets a <see cref="T:Dundas.Olap.Manager.ICommand"/> at the given index.
+            </summary>
+            <parameter name="index">Zero-based index into the list of nodes</parameter>
+            <value>
+            The <see cref="T:Dundas.Olap.Manager.ICommand"/> in the collection. 
+            If index is greater than or equal to the number of nodes in the list, 
+            this causes an <see cref="T:System.ArgumentOutOfRangeException"/>.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.IOlapPopupDialog">
+            <summary>
+            Represents a callback dialogs like DataAxis Filter dialod.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IOlapPopupDialog.OlapManager">
+            <summary>
+            Gets or sets the olap manager.
+            </summary>
+            <value>The olap manager.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IOlapPopupDialog.Parameters">
+            <summary>
+            Gets or sets the parameters.
+            </summary>
+            <value>The parameters.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.IOlapPopupDialog.DialogPostBack">
+            <summary>
+            Gets or sets a value indicating whether that dialog is in post back stage.
+            </summary>
+            <value><c>true</c> if [dialog post back]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapDesignerLoaderService">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapDesignerLoaderService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dundas.Olap.Manager.OlapDesignerLoaderService"/> class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapDesignerLoaderService.OnLoadComplete">
+            <summary>
+            Fires the LoadComplete event.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapDesignerLoaderService.Loaded">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Dundas.Olap.Manager.OlapDesignerLoaderService"/> is loaded.
+            </summary>
+            <value><c>true</c> if loaded; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapDesignerLoaderService.LoadComplete">
+            <summary>
+            Fires when designr host is loaded.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.AddCallbackOutput(System.String,System.String)">
+            <summary>
+            Adds to the callback output.
+            </summary>
+            <param name="param">The param.</param>
+            <param name="content">The content.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.AddCallbackOutput(System.Web.UI.Control)">
+            <summary>
+            Adds a control to the callback output.
+            </summary>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.AddCallbackOutput(System.String,System.Web.UI.Control)">
+            <summary>
+            Adds a control to the callback output.
+            </summary>
+            <param name="controlID">The control ID.</param>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.AddCallbackScript(System.String)">
+            <summary>
+            Registers a Javascript expression which is executed after current callback.
+            </summary>
+            <param name="scriptExpression">A Javascript expression.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.AddCallbackScript(System.String,System.String)">
+            <summary>
+            Registers a Javascript expression which is executed after current callback.
+            </summary>
+            <param name="key">The key which also applies as ordered in the script list.</param>
+            <param name="scriptExpression">A Javascript expression. </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.GetOutputControls">
+            <summary>
+            Gets the output list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.GetOutputScripts">
+            <summary>
+            Gets the output list.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.GetOutputList(System.String)">
+            <summary>
+            Gets the output list.
+            </summary>
+            <param name="outputName">Name of the output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.GetCallBackScripts">
+            <summary>
+            Gets the call back scripts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.AjaxOut.ControlToString(System.Web.UI.Control)">
+            <summary>
+            Converts the web control to literal control.
+            </summary>
+            <param name="control">The control.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.HtmlStringWriter">
+            <summary>
+            HtmlStringWriter is a helper class for offline rendering
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.HtmlStringWriter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HtmlStringWriter"/> class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.HtmlStringWriter.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.IO.TextWriter"></see> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.HtmlStringWriter.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.DataAxisType">
+            <summary>
+            Specifies axis type.
+            </summary>
+            <remarks>
+            The <b>DataAxisType</b> enumeration is used to identify one of the axes 
+            used to retrieve multidimensional data.
+            </remarks>
+        </member>
+        <member name="F:Dundas.Olap.Manager.DataAxisType.Categorical">
+            <summary>
+            Categorical axis
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.DataAxisType.Series">
+            <summary>
+            Series axis
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.DataAxisType.Slicer">
+            <summary>
+            Slicer axis
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.NamedSetPlacement">
+            <summary>
+            Defines if named sets are shown in the tree and which folder will contain them.
+            Multiple values from this enumeration can be used together.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.NamedSetPlacement.Hidden">
+            <summary>
+            Do not show named sets in the tree.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.NamedSetPlacement.InDimensionFolder">
+            <summary>
+            Show named sets in the associated dimension folder.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.NamedSetPlacement.InNamedSetsFolder">
+            <summary>
+            Show named sets in the root 'Named Sets' folder.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.FolderUsageCondition">
+            <summary>
+            Defines the condition when folders are used for measure groups and hierarchies.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.FolderUsageCondition.Always">
+            <summary>
+            Always use folders if non-empty folder or group name is specified.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.FolderUsageCondition.Never">
+            <summary>
+            Never use folders.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.FolderUsageCondition.WhenMoreThanOneElement">
+            <summary>
+            Use folders if non-empty folder or group name is specified and there is
+            more than one element inside that folder.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager">
+            <summary>
+            Represents the OLAP Manager, the key middle component of Dundas OLAP Services.
+            </summary>
+            <remarks>
+            The OLAP Manager is the middleware component that acts as a link between 
+            the user interface controls and the underlying data.  Using this control, 
+            the developer can perform all available functionality provided in Dundas 
+            OLAP Services.
+             
+            <p>To create a customized OLAP solution, the developer can:</p>
+            <p>1. Use a subset of the distributed Dundas OLAP Services UI controls (OLAP 
+            Chart, Cube Selector, Axis Builder, Dimension Browser and Report List).</p>
+            <p>2. Build customized user-interface controls.</p>
+            <p>In both scenarios, all UI components must be connected to the OLAP Manager.</p>
+            </remarks>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManager.MeasuresName">
+            <summary>
+            String constant used to represent measure dimension name.  
+            This is for internal use only.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.#ctor">
+            <summary>
+            Object constructor.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ShouldSerializeDataProviderID">
+            <summary>
+            Indicates whether the DataProviderID should be persisted.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpAllMembers">
+            <summary>
+            Drills up all previously drilled down members on all axes.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpAllMembers(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Drills up all previously drilled down members on the specified axis.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that indicates the axis on 
+            which members should be drilled up.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpAllMembers(Dundas.Olap.Manager.DataAxisType,System.Boolean)">
+            <summary>
+            Drills up all previously drilled-down nodes.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that indicates the axis on which 
+            members should be drilled up.
+            </param>
+            <param name="notifyOnAxisChange">
+            Returns <b>true</b> if the <b>OnAxisChange</b> event should be raised.
+            </param>
+            <returns>
+            Returns <b>true</b> if the axis was changed as a result.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpLevel(System.String)">
+            <summary>
+            Drills up a level in the specified dimension.
+            </summary>
+            <param name="dimensionName">
+            A <b>string</b> that represents the dimension name to drill up.
+            </param>
+            <returns>
+            Returns <b>true</b> if the dimension was successfully drilled up.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillDownLevel(System.String)">
+            <summary>
+            Drills down a level in the specified dimension.
+            </summary>
+            <param name="dimensionName">
+            A <b>string</b> that represents the dimension name to drill down.
+            </param>
+            <returns>
+            Returns <b>true</b> if the dimension was successfully drilled down.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpDownLevel(System.String,System.Boolean)">
+            <summary>
+            Helper method that drills dimension up/down a level.
+            </summary>
+            <param name="dimensionName">
+            A <b>string</b> that represents the dimension name to drill up/down a level.
+            </param>
+            <param name="drillUp">
+            Returns <b>true</b> if dimension should be drilled up; otherwise drilled down.
+            </param>
+            <returns>
+            Returns <b>true</b> if dimension was drilled down or up.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RemoveParentTupleFromDimension(Dundas.Olap.Data.Tuple)">
+            <summary>
+            Removes tuple from dimension parent's list.
+            </summary>
+            <param name="tuple">Tuple to be removed.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillUpMember(Dundas.Olap.Data.Tuple)">
+            <summary>
+            Drills up a single member specified by a tuple.
+            </summary>
+            <param name="tuple">
+            A <see cref="T:Dundas.Olap.Data.Tuple"/> object that uniquely identifies a member that should be 
+            drilled up.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.DrillDownMember(Dundas.Olap.Data.Tuple)">
+            <summary>
+            Drills down a single member specified by a tuple.
+            </summary>
+            <param name="tuple">
+            A <see cref="T:Dundas.Olap.Data.Tuple"/> object that uniquely identifies a member that should be 
+            drilled down.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsMemberDrilledDown(Dundas.Olap.Data.Tuple)">
+            <summary>
+            Checks if the member specified by this tuple is expanded as a result of a drill down.
+            </summary>
+            <param name="tuple">
+            A <see cref="T:Dundas.Olap.Data.Tuple"/> object that uniquely identifies a member to be checked.
+            </param>
+            <returns>
+            Returns <b>true</b> if specified member is expanded.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.HasDrilledDownMembers">
+            <summary>
+            Checks if any member in the current report has been drilled down.
+            </summary>
+            <returns>
+            Returns <b>true</b> if at least one member on any axis has been drilled down.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RemoveChildExpandedTuples(System.String,Dundas.Olap.Data.Tuple)">
+            <summary>
+            Remove child tuples of specified drilled down tuple.
+            </summary>
+            <param name="tuple">
+            A <see cref="T:Dundas.Olap.Data.Tuple"/> object that represent the drilled down tuple.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.PivotData">
+            <summary>
+            Pivots series and categorical axis descriptors.
+            </summary>
+            <remarks>
+            This method pivots or 'rotates' the data in the current report. All 
+            <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> objects from the series and categorical axis are switched.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsEmptyQuery">
+            <summary>
+            Checks if any dimensions are requested on any axis.
+            </summary>
+            <returns>
+            Returns <b>true</b> if there is no data requested on any axis.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.AutoGenerateQueryAxes(System.Boolean)">
+            <summary>
+            Automatically creates default axis descriptors based on the current data schema.
+            </summary>
+            <param name="sendNotification">
+            Returns <b>true</b> if notifications should be sent.
+            </param>
+            <returns>
+            Returns <b>true</b> if default axis descriptors were automatically generated.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Removes a <b>DimensionDescriptor</b> from current report axes.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> object to be removed.
+            </param>
+            <remarks>
+            This function must be used to remove a <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> from
+            the current report.
+            
+            Notifications will automatically be sent to all components.  The <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> and
+            <see cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/> methods can be used to optimize several changes.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Updates the existing <b>DimensionDescriptor</b> in the specified axis of the current report.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> object that identifies the axis on which the 
+            <b>DimensionDescriptor</b> should be updated.
+            </param>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> object to be updated.
+            </param>
+            <remarks>
+            This function must be used to update a <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> in the
+            current report.
+            
+            Notifications will automatically be sent to all components. The <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> and
+            <see cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/> methods can be used to optimize several changes.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Adds a <b>DimensionDescriptor</b> into the specified axis of the current report.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> object that identifies the axis on which the 
+            <b>DimensionDescriptor</b> should be added.
+            </param>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> object to be added.
+            </param>
+            <remarks>
+            This function must be used to add a <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> in the
+            current report.
+            
+            Notifications will automatically be sent to all components.  The <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> and
+            <see cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/> methods can be used to optimize several changes.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor,System.Int32)">
+            <summary>
+            Adds a <b>DimensionDescriptor</b> into the specified axis of the current report.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> object that identifies the axis where the 
+            <b>DimensionDescriptor</b> should be added.
+            </param>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> object to be added.
+            </param>
+            <param name="index">
+            An <b>integer</b> index where the dimension descriptor should be inserted.
+            </param>
+            <remarks>
+            This function is used to add a <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> in the
+            current report.
+            
+            Notifications will automatically be sent to all components. The <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> and
+            <see cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/> methods can be used to optimize several changes.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RemoveChildMembersFromDescriptor(Dundas.Olap.Data.MemberCollection,Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Removes all child members from the <b>DimensionDescriptor</b>.
+            </summary>
+            <param name="members">
+            Collection of members.
+            </param>
+            <param name="dimensionDescriptor">
+            The <b>DimensionDescriptor</b> from which to remove the child members.
+            </param>
+            <returns>
+            An <b>integer</b> index of the first removed member.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.MergeDimensionDescriptors(Dundas.Olap.Data.DimensionDescriptor,Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Merges data from two dimensions while adding a new dimension descriptor.
+            </summary>
+            <param name="desc1">
+            Dimension descriptor that is being added.
+            </param>
+            <param name="desc2">
+            Dimension descriptor with the same name as the new descriptor that currently
+            exists in the same axis.
+            </param>
+            <returns>
+            Merged <b>DimensionDescriptor</b> object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetAxisDescriptor(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets axis descriptor object for the specified axis type.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value to get the <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> for.
+            </param>
+            <returns>
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that describes dimensions to be retrieved
+            on the specified axis.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.PopulateDimensionDescriptorMembers(Dundas.Olap.Data.DimensionDescriptor,Dundas.Olap.Manager.DataAxisType,System.Boolean)">
+            <summary>
+            Fills the list of dimension descriptor members if required.
+            </summary>
+            <param name="dimensionDescriptor">
+            A <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> which members will be tested and filled.
+            </param>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> this dimension member belongs to.
+            </param>
+            <param name="loadMemberList">
+            Returns <b>true</b> if member list should be loaded independat of any other conditions.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDataTitle">
+            <summary>
+            Gets the data title using the format of the current report.
+            </summary>
+            <seealso cref="P:Dundas.Olap.Manager.OlapReport.DataTitleFormat"/>
+            <returns>
+            A <b>string</b> value that represents the data title.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDataTitle(System.String)">
+            <summary>
+            Gets the data title using the format of the current report.
+            </summary>
+            <param name="format">
+            A <b>string</b> that defines the title format.
+            </param>
+            <returns>
+            A <b>string</b> value that represents the data title.
+            </returns>
+            <remarks>
+            Special keywords can be inserted in this text that will be updated based on 
+            the data shown in the report. For example, the default format is 
+            "#MEASURES by #DIMENSIONS" and it shows the names of currently 
+            displayed measures and dimensions.
+            <p>
+            The following table displays a list of keywords and its descriptions:
+            </p>
+            <p><TABLE id="KeywordTable" height="89" cellSpacing="0" border="1">
+            <TR>
+            <TD bgcolor="#C0C0C0"><b>Keyword</b></TD>
+            <TD bgcolor="#C0C0C0"><b>Description</b></TD>
+            </TR>
+            <TR>
+            <TD>#MEASURES</TD>
+            <TD>List of displayed measure names.</TD>
+            </TR>
+            <TR>
+            <TD>#DIMENSIONS</TD>
+            <TD>List of displayed dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#SERIES_DIMENSIONS</TD>
+            <TD>List of displayed series dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#CATEGORICAL_DIMENSIONS</TD>
+            <TD>List of displayed categorical dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#LEVELS</TD>
+            <TD>List of displayed levels names.</TD>
+            </TR>
+            <TR>
+            <TD>#SERIES_LEVELS</TD>
+            <TD>List of displayed series levels names.</TD>
+            </TR>
+            <TR>
+            <TD>#CATEGORICAL_LEVELS</TD>
+            <TD>List of displayed categorical levels names.</TD>
+            </TR>
+            <TR>
+            <TD>#SLICER_LEVELS</TD>
+            <TD>List of displayed slicer levels names.</TD>
+            </TR>
+            <TR>
+            <TD>#SORTING_AND_FILTERING</TD>
+            <TD>Sorting and filtering conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#SORTING</TD>
+            <TD>Sorting conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#FILTERING</TD>
+            <TD>Value filtering conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#FILTERING_TOP_BOTTOM</TD>
+            <TD>Top/bottom filtering conditions.</TD>
+            </TR>
+            </TABLE></p>
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetSortingAndFilteringText">
+            <summary>
+            Gets the text that describes the current report's sorting and filtering settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.GetDataTitle"/>
+            <returns>
+            A <b>string</b> of text that describes the current report's sorting and filtering settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetSortingText">
+            <summary>
+            Gets the text that describes the current report's sorting settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.GetDataTitle"/>
+            <returns>
+            A <b>string</b> of text that describes the current report's sorting settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetSortingText(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets the text that describes the current report's sorting settings on the specified axis.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that identifies the axis.
+            </param>
+            <returns>
+            A <b>string</b> of text that describes the current report's sorting settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetFilteringText">
+            <summary>
+            Gets the text that describes the current report's filtering settings.
+            </summary>
+            <returns>
+            A <b>string</b> of text that describes the current report's filtering settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetFilteringText(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets the text that describes the current report's filtering settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.GetDataTitle"/>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that identifies the axis.
+            </param>
+            <returns>
+            A <b>string</b> of text that describes the current report's filtering settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetConditionOperation(Dundas.Olap.Data.FilterCondition)">
+            <summary>
+            Helper method that returns filtering condition sign.
+            </summary>
+            <param name="filterCondition">
+            A <see cref="T:Dundas.Olap.Data.FilterCondition"/> object to get te codition sign for.
+            </param>
+            <returns>
+            A <b>string</b> that defines the filtering condition sign.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetFilteringTopBottomText">
+            <summary>
+            Gets the text that describes the current report's top/bottom filtering settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.GetDataTitle"/>
+            <returns>
+            A <b>string</b> of text that describes the current report's top/bottom filtering settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetFilteringTopBottomText(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets the text that describes the current report's top/bottom filtering settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.GetDataTitle"/>
+            <returns>
+            A <b>string</b> of text that describes the current report's top/bottom filtering settings.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDimensionNames">
+            <summary>
+            Gets dimension names from all axes.
+            </summary>
+            <returns>
+            A <b>string</b> that contains dimension names separated using 'by' word.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDimensionNames(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets dimension names from specified axes.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that indentifies the axis.
+            </param>
+            <returns>
+            A <b>string</b> that contains dimension names separated using 'by' word.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetLevelNames">
+            <summary>
+            Gets level names from all axes.
+            </summary>
+            <returns>
+            A <b>string</b> that contains level names separated using 'by' word.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetLevelNames(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Gets level names from specified axes.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that indentifies the axis.
+            </param>
+            <returns>
+            A <b>string</b> that contains level names separated using 'by' word.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetMeasureNames">
+            <summary>
+            Gets comma separated names of measures.
+            </summary>
+            <returns>
+            A <b>string</b> that contains comma separated measure names.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RevertToOriginalReport">
+            <summary>
+            Reverts the current report to its original settings.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/>
+            <remarks>
+            When the end-user modifies the <b>Current Report</b>, calling this method 
+            will cancel the changes and revert the report to its original state.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateCurrentReport">
+            <summary>
+            Updates the current report.
+            </summary>
+            <remarks>
+            The <b>UpdateCurrentReport</b> method notifies all associated components to
+            update their state in the current report. For example, the <b>OlapChart</b>
+            component serializes the appearance of the chart as the <see cref="P:Dundas.Olap.Manager.OlapReport.ChartTemplate"/> property
+            of the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/>.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)">
+            <summary>
+            Loads the <b>OlapReports</b> list from a file.
+            </summary>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/>
+            <param name="fileName">
+            A <b>string</b> that defines the filename to load the report list from.
+            </param>
+            <remarks>
+            The OLAP Manager <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list can be serialized into a file
+            or a stream using the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/> and <see cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/> methods.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.IO.Stream,System.Boolean)">
+            <summary>
+            Loads the <b>OlapReports</b> list from a stream.
+            </summary>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/>
+            <param name="stream">
+            A <b>Stream</b> that defines the source for the report list data.
+            </param>
+            <remarks>
+            The OLAP Manager <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list can be serialized into a file
+            or a stream using the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/> and <see cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/> methods.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)">
+            <summary>
+            Saves an <b>OlapReports</b> list into a file.
+            </summary>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/>
+            <param name="fileName">
+            A <b>string</b> that defines the filename to save the report list into.
+            </param>
+            <remarks>
+            The OLAP Manager <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list can be serialized into a file
+            or a stream using the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/> and <see cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/> methods.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.IO.Stream)">
+            <summary>
+            Saves an <b>OlapReports</b> list into a stream.
+            </summary>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/>
+            <param name="stream">
+            A <b>Stream</b> that defines the destination for the report list data.
+            </param>
+            <remarks>
+            The OLAP Manager <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list can be serialized into a file
+            or a stream using the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/> and <see cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/> methods.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport,System.Boolean)">
+            <summary>
+            Sets the current <b>OlapReport</b>.
+            </summary>
+            <seealso cref="T:Dundas.Olap.Manager.OlapReport"/>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/>
+            <param name="olapReport">
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object to be set as the current report of the OLAP Manager.
+            </param>
+            <remarks>
+            The <b>OLAP Manager</b> always works with a single report called the <b>CurrentOlapReport</b>.
+            When a report is made current, all components associated with the OLAP Manager are 
+            automatically updated to display the new data.
+            
+            The <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/> read-only property can be used to access the current report.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsMultipleSlicerMemberSelectionAllowed">
+            <summary>
+            Gets a flag if multiple members selection in the slicer axis is allowed.
+            </summary>
+            <returns>
+            Returns <b>true</b> if multiple members selection in the slicer axis is allowed.
+            </returns>
+            <remarks>
+            Not all data providers allow selection of multiple members from the same
+            dimension in the slicer axis. This method will return <b>true</b> when:
+            <br></br>
+            1.  The data provider supports selection of multiple members from the same dimension on the slicer axis. <br/>
+            2.  The <see cref="P:Dundas.Olap.Manager.CubeBrowserSettings.AllowMultipleSlicerMemberSelection"/>
+            property is set to <b>true</b>.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsNotificationsEnabled">
+            <summary>
+            Evaluate and returns boolean flag which deterimines if the event notifications are active. 
+            </summary>
+            <returns>True if notification events are active</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.BeginUpdate">
+            <summary>
+            Maintains performance while the current report settings are changed by temporarily
+            disabling notification events.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/>
+            <remarks>
+            When the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName"/> and <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/> properties 
+            are changed, or the <see cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>, <see cref="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/> or
+            <see cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/> methods are called, the <b>OlapManger</b> raises
+            notification events to notify the associated components.
+            
+            <p>When a series of changes is required, these notifications and updates in the 
+            associated components may affect performance. The <b>BeginUpdate</b> method
+            temporarily disables the notification events until the <see cref="M:Dundas.Olap.Manager.OlapManager.EndUpdate"/>
+            method is called.</p>
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.EndUpdate">
+            <summary>
+            Resumes notifications after they are suspended by the <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> 
+            method call.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/>
+            <remarks>
+            When the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName"/> and <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/> properties 
+            are changed, or the <see cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>, <see cref="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/> or
+            <see cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/> methods are called, the <b>OlapManger</b> raises
+            notification events to notify the associated components.
+            
+            <p>When a series of changes is required, these notifications and updates in the 
+            associated components may affect performance. The <see cref="M:Dundas.Olap.Manager.OlapManager.BeginUpdate"/> method
+            temporarily disables the notification events until the <b>EndUpdate</b> method is called.</p>
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.CanDrillDownMembers">
+            <summary>
+            Checks if any member in the current report can be drilled down.
+            </summary>
+            <returns>
+            Returns <b>true</b> if members can be drilled down.
+            </returns>
+            <remarks>
+            The member drill down feature is disabled when the hierarchy of the multidimensional 
+            data is broken as a result of filtering or sorting.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.Dispose">
+            <summary>
+            Dispose object.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCubesInfo">
+            <summary>
+            Retrieves information about all available cubes from the current data provider.
+            </summary>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CubeInfoCollection"/> object that represents a list of <see cref="T:Dundas.Olap.Data.CubeInfo"/>
+            objects that store cube metadata.
+            </returns>
+            <remarks>
+            A <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/> property must be set to a connected data provider object
+            for this method to work.
+            
+            It returns a collection of <see cref="T:Dundas.Olap.Data.CubeInfo"/> objects that contain the cube name, 
+            caption, description and other data related to each cube.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ReloadDataSchema">
+            <summary>
+            Reloads the data schema from the current data provider.
+            </summary>
+            <remarks>
+            When the data schema is retrieved from the <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/>, it 
+            is cached in the <b>OlapManager</b> component.  The <b>ReloadDataSchema</b>
+            method re-requests the metadata from the <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/>.  
+            The developer can also retrieve the data schema by calling the 
+            <see cref="M:Dundas.Olap.Manager.OlapManager.GetDataSchema"/> method.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ShowData">
+            <summary>
+            Initializes the work of the <b>OlapManager</b> by retrieving the data schema
+            from the data provider.  This generates the initial query and sends notification
+            about new data availability.
+            </summary>
+            <remarks>
+            The <b>ShowData</b> method must be called so that the associated components start to
+            display the multidimensional data schema and the cellset.
+            
+            This method can also be used at any time to refresh the content of any UI 
+            components associated with the OLAP Manager.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDataSchema">
+            <summary>
+            Gets the data schema for the default OLAP cube.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.ReloadDataSchema"/>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CubeDataSchema"/> object that represents the default cube data schema.
+            </returns>
+            <remarks>
+            The default cube name is defined by the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName"/> property. If this 
+            property is set to an empty string, the first cube in the metadata is used.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDataSchema(System.String)">
+            <summary>
+            Gets the data schema for the specified OLAP cube.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.ReloadDataSchema"/>
+            <param name="cubeName">
+            A <b>string</b> that contains the name of the cube to get the data schema for.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CubeDataSchema"/> object that represents the default cube data schema.
+            </returns>
+            <remarks>
+            The default cube name is defined by the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName"/> property. If this 
+            property is set to an empty string, the first cube in the metadata is used.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.LoadData">
+            <summary>
+            Requests new data from the <b>DataProvider</b> based on the current report settings.
+            </summary>
+            <remarks>
+            The <b>LoadData</b> method requests multidimensional data from the 
+            <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/> defined in the Series, Categorical and Slicer axes of
+            the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/>.
+            
+            When data is succesfully retrieved as a <see cref="T:Dundas.Olap.Data.CellSet"/>, the 
+            <see cref="M:Dundas.Olap.Manager.OlapManager.OnCellSetChanged"/> notification event will be raised by the OLAP Manager.
+            The <see cref="M:Dundas.Olap.Manager.OlapManager.GetCurrentData"/> method can then be used to access the curent cellset.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCurrentData">
+            <summary>
+            Gets the <b>CellSet</b> object returned after the last data request.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.LoadData"/>
+            <seealso cref="T:Dundas.Olap.Data.CellSet"/>
+            <seealso cref="E:Dundas.Olap.Manager.OlapManager.CellSetChanged"/>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CellSet"/> object used to access multidimensional data.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCurrentData(System.Boolean)">
+            <summary>
+            Gets the <b>CellSet</b> object returned after the last data request.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.LoadData"/>
+            <seealso cref="T:Dundas.Olap.Data.CellSet"/>
+            <param name="reload">
+            A <b>boolean</b> flag that indicates if data should be reloaded using 
+            the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadData"/> method first.
+            </param>
+            <returns>
+            A <see cref="T:Dundas.Olap.Data.CellSet"/> object used to access multidimensional data.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetDimensionDescriptorHierarchy(Dundas.Olap.Data.DimensionDescriptor)">
+            <summary>
+            Gets hierarchy used in specified dimension descriptor.
+            </summary>
+            <param name="dimensionDescriptor">
+            Dimension descriptor to get the hierarchy for.
+            </param>
+            <returns>
+            Hierarchy represented by the dimension descriptor or NULL in case of error.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.CompareMemberWithDescriptor(Dundas.Olap.Data.Member,Dundas.Olap.Data.DimensionMemberDescriptor)">
+            <summary>
+            Compares Members and DimensionMemberDescriptor object using their names or unique names.
+            </summary>
+            <param name="member">
+            Member to compare.
+            </param>
+            <param name="memberDescriptor">
+            Member descriptor to compare.
+            </param>
+            <returns>
+            True if objects present the same member.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SetCursorWait">
+            <summary>
+            Sets wait cursor.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RestoreCursor">
+            <summary>
+            Restores previous cursor changed by the SetCursorWait method.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.CheckDataProvider">
+            <summary>
+            Checks if DataProvider property is set.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateMemberMetadata(Dundas.Olap.Data.CellSet)">
+            <summary>
+            Updates member object in the cellset.
+            </summary>
+            <param name="cellSet">
+            A <see cref="T:Dundas.Olap.Data.CellSet"/> object where members should be updated.
+            </param>
+            <remarks>
+            Member objects in the cellset do not contain the metadata such as child members 
+            or parent member. This data mybe already retrieved in the members stored in the 
+            data schema. This method tries to replace all the member objects from the cellset
+            with member object in the data schema matching them using unique names.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateMemberMetadata(Dundas.Olap.Data.Member)">
+            <summary>
+            Finds matching member in the data schema.
+            </summary>
+            <param name="member">
+            A member from the cellset that must be replaced with the member from the data
+            schema.
+            </param>		
+            <remarks>
+            Member objects in the cellset do not contain the metadata such as child members 
+            or parent member. This data mybe already retrieved in the members stored in the 
+            data schema. This method tries to replace all the member objects from the cellset
+            with member object in the data schema matching them using unique names.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnCurrentOlapReportChanged(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportChanged"/> event.
+            </summary>
+            <param name="report">
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object that contains the current OLAP Report.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnCurrentOlapReportUpdate(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdate"/> event.
+            </summary>
+            <param name="report">
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object that should be updated.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnErrorDetected(System.Exception)">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdate"/> event.
+            </summary>
+            <param name="ex">
+            An <see cref="T:System.Exception"/> object that represented the error detected.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnDataSchemaChanged">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.DataSchemaChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnCurrentCubeChanged">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentCubeChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnOlapReportsChanged">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.OlapReportsChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnCellSetChanged">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.CellSetChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnDataAxisDimensionsChanged(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged"/> event.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that identifies the changed axis.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnDataAxisDimensionsChanged(Dundas.Olap.Manager.DataAxisType,System.Boolean)">
+            <summary>
+            Raises the <see cref="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged"/> event.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> value that identifies the changed axis.
+            </param>
+            <param name="drillUpAll">
+            A <b>boolean</b> flag that indicates if all drilled down members should be 
+            drilled up.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnCommand(System.Web.UI.WebControls.CommandEventArgs)">
+            <summary>
+            Raises the Command event of the OlapChart control.
+            </summary>
+            <param name="e">
+            A <see cref="T:System.Web.UI.WebControls.CommandEventArgs"/> that contains the event data. 
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateCellSetFromDataProvider">
+            <summary>
+            Updates the cellset from the data provider.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnInit(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.Init"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.TrackOpenedDialogs">
+            <summary>
+            Tracks the opened dialogs.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteSortAndFilterDialog(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Executes the Sorting and Filtering dialog.
+            </summary>
+            <param name="axisType">Type of the axis.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteRenameReportDialog">
+            <summary>
+            Executes the Rename Report dialog.
+            </summary>
+            <param name="axisType">Type of the axis.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteLoadReportsDialog">
+            <summary>
+            Executes the Load Reports dialog.
+            </summary>
+            <param name="axisType">Type of the axis.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteEditDimensionDialog(System.Int32,Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Executes the Edit Dimension dialog.
+            </summary>
+            <param name="dimensionDescriptorIndex">Index of the dimension descriptor.</param>
+            <param name="axisType">Type of the axis.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteAddDimensionDialog(System.Int32,Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Executes the Add Dimension dialog.
+            </summary>
+            <param name="dimensionDescriptorIndex">Index of the dimension descriptor.</param>
+            <param name="axisType">Type of the axis.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.InitializeUserControlDialog(System.String,System.String,System.Boolean)">
+            <summary>
+            Executes the dimension browser dialog.
+            </summary>
+            <param name="userControlVirtualPath">The user control virtual path.</param>
+            <param name="title">The title.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteDundasDialog(System.String,System.String)">
+            <summary>
+            Executes the dimension browser dialog.
+            </summary>
+            <param name="userControlVirtualPath">The user control virtual path.</param>
+            <param name="title">The title.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteDundasDialog(System.String,System.String,System.String,Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Executes the dimension browser dialog.
+            </summary>
+            <param name="userControlVirtualPath">The user control virtual path.</param>
+            <param name="title">The title.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteDialog(System.String,System.String,System.String)">
+            <summary>
+            Executes a user-defined dialog.
+            </summary>
+            <param name="userControlVirtualPath">The user control virtual path.</param>
+            <param name="title">The title.</param>
+            <param name="parameters">The parameters.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.CreatePopupDialog(System.String)">
+            <summary>
+            Creates the popup dialog.
+            </summary>
+            <param name="typeName">Name of the type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsInitialized">
+            <summary>
+            Determines whether this OlapManager is initialized.
+            Returns true when OlapManager and its OlapReports are fully loaded.
+            </summary>
+            <returns>
+            	<c>true</c> if this instance is initialized; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.IsStateChanged(Dundas.Olap.Manager.OlapManagerState)">
+            <summary>
+            Gets a value that indicates if the <b>OlapManager</b> state has changed.
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ResetStateChanges">
+            <summary>
+            Resets the state changes.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnPreRender(System.EventArgs)">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.OnPreRender(System.EventArgs)"/>.
+            </summary>
+            <param name="e">Event arguments</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.Render(System.Web.UI.HtmlTextWriter)"/> method 
+            </summary>
+            <param name="writer">The <see cref="T:System.Web.UI.HtmlTextWriter"/> object</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.LoadPersistenceData">
+            <summary>
+            Forces pre-loading of internal data from a session variable.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SavePersistenceData">
+            <summary>
+            Forces saving of internal data into a session variable.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCookieName">
+            <summary>
+            Gets the name of the cookie.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetPreventScript(System.String)">
+            <summary>
+            Gets the prevent script.
+            </summary>
+            <param name="inputName">Name of the input.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SyncronizePage">
+            <summary>
+            Syncronizes the page.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ReadOlapState">
+            <summary>
+            Reads the state of the olap manager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.WriteOlapState(Dundas.Olap.Manager.OlapState)">
+            <summary>
+            Writes the state of the olap manager.
+            </summary>
+            <param name="state">The state.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetSessionExpiredMessage">
+            <summary>
+            Gets the session expired message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GenerateSessionExpiredAlert">
+            <summary>
+            Generates the session expired alert.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.LoadViewState(System.Object)">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.LoadViewState(System.Object)"/> method
+            </summary>
+            <param name="savedState">An object which contain view state data</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.SaveViewState">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.SaveViewState"/> method
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnLoad(System.EventArgs)">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.OnLoad(System.EventArgs)"/> method
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.OnUnload(System.EventArgs)">
+            <summary>
+            This member overrides <see cref="M:System.Web.UI.Control.OnUnload(System.EventArgs)"/> method
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCallbackEventReference(System.Web.UI.Control,System.String,System.Type[])">
+            <summary>
+            Obtains a reference to a client-side function that, when invoked, 
+            initiates a client call back to a server-side event which is handled
+            by the OlapManager. 
+            </summary>
+            <remarks>
+            The <b>targetControl</b>, if is not null and implements 
+            <see cref="T:System.Web.UI.IPostBackEventHandler"/>, will be invoked with the given arguments.
+            The registered controls by the <see cref="M:Dundas.Olap.Manager.OlapManager.RegisterCallBackControl(System.Web.UI.WebControls.WebControl)"/> matched
+            with affectedControlTypes will be asked to provide content for DHTML and/or javascript updating.
+            </remarks>
+            <param name="targetControl">The control which handles the <b>arguments</b></param>
+            <param name="arguments">String which is passed to the targetControl</param>
+            <param name="affectedControlTypes">List of types of controls to update, excluding controls that implement <see cref="T:Dundas.Olap.Manager.IOlapConditionalCallbackHandler"/></param>
+            <returns>String which represents javascript function.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCallbackEventReference(System.Web.UI.Control,System.String,System.String)">
+            <summary>
+            Obtains a reference to a client-side function that, when invoked, 
+            initiates a client call back to a server-side event which is handled
+            by OlapManager. 
+            </summary>
+            <remarks>
+            The <b>targetControl</b>, if is not null and implements 
+            <see cref="T:System.Web.UI.IPostBackEventHandler"/>, will be invoked with the given arguments.
+            The registered controls by <see cref="M:Dundas.Olap.Manager.OlapManager.RegisterCallBackControl(System.Web.UI.WebControls.WebControl)"/> matched
+            with affectedControlTypes will be asked to provide content for DHTML and/or javascript updating.
+            </remarks>
+            <param name="targetControl">The control which handles the <b>arguments</b></param>
+            <param name="arguments">String which is passed to the targetControl</param>
+            <param name="affectedControlTypesList">String which represents list of types of controls to update, excluding controls that implement <see cref="T:Dundas.Olap.Manager.IOlapConditionalCallbackHandler"/></param>
+            <returns>String which represents javascript function.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.GetCallbackCloseDialogScript">
+            <summary>
+            Gets the callback close dialog script.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RegisterCallBackControl(System.Web.UI.WebControls.WebControl)">
+            <summary>
+            Registers a call back control for managing callbacks sequence.
+            </summary>
+            <remarks>
+            The control should implement the <see cref="T:Dundas.Olap.Manager.IOlapCallbackHandler"/> interface.
+            </remarks>
+            <param name="control">An control to register.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UnRegisterCallBackControl(System.Web.UI.WebControls.WebControl)">
+            <summary>
+            Registers a call back control for managing callbacks sequence.
+            </summary>
+            <remarks>
+            The control should implement the <see cref="T:Dundas.Olap.Manager.IOlapCallbackHandler"/> interface.
+            </remarks>
+            <param name="control">An control to register.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.RegisterCallbackScriptExpression(System.String,System.String)">
+            <summary>
+            Registers a Javascript expression which is executed after current callback.
+            </summary>
+            <param name="key">The key which also applies as ordered in the script list.</param>
+            <param name="scriptExpression">A Javascript expression. </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.ExecuteClientScript(System.String)">
+            <summary>
+            Executes the client script.
+            </summary>
+            <param name="jsSourceCode">The javascript source code.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateClientControl(System.String,System.String)">
+            <summary>
+            Updates the client control.
+            </summary>
+            <param name="controlId">The control id.</param>
+            <param name="controlContent">Content of the control.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateClientControl(System.Web.UI.Control)">
+            <summary>
+            Updates the client control.
+            </summary>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.UpdateClientControl(System.String,System.Web.UI.Control)">
+            <summary>
+            Updates the client control.
+            </summary>
+            <param name="controlID">The control ID.</param>
+            <param name="control">The control.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.System#Web#UI#ICallbackEventHandler#GetCallbackResult">
+            <summary>
+            Returns the results of a callback event that targets a control.
+            </summary>
+            <returns>The result of the callback.</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManager.System#Web#UI#ICallbackEventHandler#RaiseCallbackEvent(System.String)">
+            <summary>
+            Processes a callback event that targets a control.
+            </summary>
+            <param name="eventArgument">A string that represents an event argument to pass to the event handler.</param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.DimensionTreePageSize">
+            <summary>
+            Gets or sets dimension tree pige size.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.CellSetPaging">
+            <summary>
+            Gets or sets dimension tree pige size.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.AllowRemoveMeasures">
+            <summary>
+            Gets or sets property to allow measures button to be removed from the axis.
+            </summary>
+            <value>Allows the measures button to be removed from the axis.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.CubeBrowserSettings">
+            <summary>
+            The <b>CubeBrowserSettings</b> object exposes a number of properties that define how data is
+            presented in the Cube Dimension Browser control. 
+            </summary>
+            <value>
+            A <see cref="P:Dundas.Olap.Manager.OlapManager.CubeBrowserSettings"/> object that defines the multidimensional Cube 
+            Dimension Browser settings.
+            </value>
+            <remarks>
+            The <b>CubeBrowserSettings</b> object expose a number of properties that define how data is
+            presented in the Cube Dimension Browser control.
+            
+            These settings are used in the <b>DimensionBrowser</b> and <b>AxisBuilder</b> controls.
+            
+            Call the <see cref="M:Dundas.Olap.Manager.OlapManager.ShowData"/> method to update the content of any Cube Dimension Browser controls after 
+            changing any settings.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.DataSchemaCacheObject">
+            <summary>
+            Gets or sets the <b>OlapManager</b> data schema cache object.
+            </summary>
+            <value>
+            When several <b>OlapManager</b> controls are connected to the same data provider, one
+            data schema object can be used.  This is accomplished by assigning the <b>DataSchemaCacheObject</b>
+            property of all OlapManager controls to the same <b>Hashtable</b> object.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.IsConnected">
+            <summary>
+            Checks if the <b>OlapManager</b> is connected to the data source.
+            </summary>
+            <value>
+            Returns <b>true</b> if a valid <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/> is specified and this data provider
+            is currently connected to the data source.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport">
+            <summary>
+            Gets the current OLAP Report.
+            </summary>
+            <seealso cref="T:Dundas.Olap.Manager.OlapReport"/>
+            <value>
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> value that defines the current <b>OlapReport</b>.
+            </value>
+            <remarks>
+            The <b>CurrentOlapReport</b> object stores the current settings of the 
+            cube name, the axis descriptors, the chart template, the expanded members,
+            and other relevant information.
+            
+            <p>This property is read-only.  The <see cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/> method sets
+            the current report, automatically updating all of the UI components associated 
+            with this OLAP Manager.</p>
+            
+            <p><b>Note:</b> When updating the axis descriptors of the current report, the 
+            <see cref="M:Dundas.Olap.Manager.OlapManager.AddAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/>, <see cref="M:Dundas.Olap.Manager.OlapManager.RemoveAxisDimensionDescriptor(Dundas.Olap.Data.DimensionDescriptor)"/> and
+            <see cref="M:Dundas.Olap.Manager.OlapManager.SetAxisDimensionDescriptor(Dundas.Olap.Manager.DataAxisType,Dundas.Olap.Data.DimensionDescriptor)"/> methods should be used so that the
+            UI components associated with this OLAP Manager will automatically be updated.</p>
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.OlapReports">
+            <summary>
+            Represents the report list of the <b>OlapManager</b>.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/>
+            <value>
+            An <see cref="T:Dundas.Olap.Manager.OlapReportCollection"/> object that contains a list of available 
+            reports.
+            </value>
+            <remarks>
+            Reports in the report list can be exposed to the end user using the <b>OlapReportList</b>
+            control. This control can be used to add, remove, rename and change the current report.
+            
+            Reports in the list can be saved or loaded from a file or a stream using the <see cref="M:Dundas.Olap.Manager.OlapManager.LoadReports(System.String)"/>
+            and <see cref="M:Dundas.Olap.Manager.OlapManager.SaveReports(System.String)"/> methods.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.NewOlapReportTemplate">
+            <summary>
+            Gets or sets the <b>OlapReport</b> used as a new report template.
+            </summary>
+            <value>
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object that is used when a new report is created
+            by the end-user in the <b>OlapReportList</b> control.
+            </value>
+            <remarks>
+            This report defines the initial settings (title, axis descriptors, chart template, etc.) 
+            of the new reports added by the end-user in the <b>OlapReportList</b> 
+            control.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.AutoGenerateFirstQuery">
+            <summary>
+            Indicates that if the current report axis descriptors are empty, the dimension descriptors
+            will automatically be added from the current cube to generate the initial data query. 
+            </summary>
+            <value>
+            A <b>boolean</b> value that indicates if the empty axis descriptors should 
+            automatically be filled.
+            </value>
+            <remarks>
+            If the current report's Categories and Series <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> objects do not 
+            contain any <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> objects, there is nothing to request 
+            from the data source.
+            
+            Setting this property to <b>true</b> avoids the 'empty' view when the end-user loads
+            a new report or switches the current OLAP cube.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.DataProvider">
+            <summary>
+            Gets or sets the data provider associated with the <b>OlapManager</b>.
+            </summary>
+            <value>
+            An <see cref="T:Dundas.Olap.Data.IDataProvider"/> object used to retrieve the multidimensional schema and data.
+            </value>
+            <remarks>
+            The <b>DataProvider</b> object connects the OLAP Manager with different types of 
+            multidimensional data sources.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.DataProviderID">
+            <summary>
+            Gets or sets the ID data provider component associated with the <b>OlapManager</b>.
+            </summary>
+            <value>
+            An <see cref="T:Dundas.Olap.Data.IDataProvider"/> object used to retrieve the multidimensional schema and data.
+            </value>
+            <remarks>
+            The <b>DataProvider</b> object connects the OLAP Manager with different types of 
+            multidimensional data sources.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.UsePageViewState">
+            <summary>
+            Gets or sets a flag which determines where internal report data is saved.
+            </summary>
+            <value>
+            A flag which determines where internal report data is saved.  Defaults to a session variable.
+            </value>
+            <remarks>
+            The internal report data can be saved as page view state or in a session variable of the <b>OlapManager</b>.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.PreventBackNavigation">
+            <summary>
+            Gets or sets a flag which determines whether to include scripts into HTML page, preventing Back browser navigation.
+            </summary>
+            <value>
+            A <see cref="P:Dundas.Olap.Manager.OlapManager.PreventBackNavigation"/> flag, which determines the generation of a special script to prevent browser Back navigaton. Default is Auto.
+            </value>
+            <remarks>
+            This is usable when the OLAP Manager uses a session variable to keep its data.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.ToolbarSettings">
+            <summary>
+            Gets the toolbar settings.
+            </summary>
+            <value>The toolbar settings.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.SupportsCubes">
+            <summary>
+            Gets the flag that indicates if the current data provider supports 
+            multiple cubes.
+            </summary>
+            <value>
+            Returns <b>true</b> if the current <see cref="P:Dundas.Olap.Manager.OlapManager.DataProvider"/> supports multiple cubes.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.NonEmptyCellsOnly">
+            <summary>
+            Gets or sets the flag that indicates if the empty series or categories should be
+            filtered out.
+            </summary>
+            <value>
+            A <b>boolean</b> value that indicates if only non-empty cells should be
+            retrieved from the data source in the series or categories. 
+            </value>
+            <remarks>
+            The <b>NonEmptyCellsOnly</b> property filters out all series or categories that
+            consist of only empty cells. If at least one cell is not empty, this
+            property will not remove that series or category.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName">
+            <summary>
+            Represents the current cube name of the <b>OlapManager</b>.
+            </summary>
+            <value>
+            A <b>string</b> value that represents the current multidimensional cube name.
+            </value>
+            <remarks>
+            A list of all available cubes can be retrieved using the <see cref="M:Dundas.Olap.Manager.OlapManager.GetCubesInfo"/>
+            method. 
+            
+            <p>If the <b>CubeSelector</b> control is associated with the OLAP Manager, this 
+            property will be linked with the cube name selected in that control. Any changes
+            in the UI control will automatically be updated in that property and vice versa.</p>
+            
+            <p>Some data providers may not support mutiple cubes, in which case this property
+            is ignored. This property checks the <see cref="P:Dundas.Olap.Manager.OlapManager.SupportsCubes"/> property to see 
+            if the current DataProvider supports multiple cubes.</p>
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.EnableViewState">
+            <summary>
+            This member overrides <see cref="P:System.Web.UI.Control.EnableViewState"/> property
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.Visible">
+            <summary>
+            This member overrides the <see cref="P:System.Web.UI.Control.Visible"/> property.
+            </summary>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportChanged">
+            <summary>
+            Event occurs when the current OLAP Report is changed.
+            </summary>
+            <remarks>
+            The <b>CurrentOlapReportChanged</b> event occurs when the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/> 
+            is changed.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdate">
+            <summary>
+            Event occurs when current OLAP Report content must be updated.
+            </summary>
+            <remarks>
+            The <b>CurrentOlapReportUpdate</b> event occurs when all components that persist their
+            state inside the report serialize their state into the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/>.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.ErrorDetected">
+            <summary>
+            Event occurs when error is detected.
+            </summary>
+            <remarks>
+            The <b>ErrorDetected</b> event occurs when an error is detected 
+            in the OLAP Manager.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.DataSchemaChanged">
+            <summary>
+            Event occurs when the data schema has changed.
+            </summary>
+            <remarks>
+            The <b>DataSchemaChanged</b> event occurs when all components in the current data schema
+            have changed. For example, this event is raised when the current cube name is changed
+            and all UI components must load a new data schema.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.CurrentCubeChanged">
+            <summary>
+            Event occurs when the current cube is changed.
+            </summary>
+            <remarks>
+            The <b>CurrentCubeChanged</b> event occurs when the current cube name in the OLAP Manager 
+            is changed. This can be accomplished as a result of changing the <see cref="P:Dundas.Olap.Manager.OlapManager.CurrentCubeName"/> property or 
+            after setting the new current report using the <see cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/> method.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.OlapReportsChanged">
+            <summary>
+            Event occurs when the <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list is changed.
+            </summary>
+            <remarks>
+            The <b>OlapReportsChanged</b> event occurs when the <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> list is changed.
+            It can be used to update the list of available reports.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.CellSetChanged">
+            <summary>
+            Event occurs when a new <see cref="T:Dundas.Olap.Data.CellSet"/> is available for presenting
+            the data.
+            </summary>
+            <remarks>
+            The <b>CellSetChanged</b> event occurs when new data is available 
+            and can be retrieved using the <see cref="M:Dundas.Olap.Manager.OlapManager.GetCurrentData"/> method.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged">
+            <summary>
+            Event occurs when dimension settings are changed on the Categorical, Series or Slicer axis.
+            </summary>
+            <remarks>
+            The <b>DataAxisDimensionsChanged</b> event occurs when a <see cref="T:Dundas.Olap.Data.DimensionDescriptor"/> on the specified
+            axis is added, removed or changed.
+            </remarks>
+        </member>
+        <member name="E:Dundas.Olap.Manager.OlapManager.Command">
+            <summary>
+            Occurs when the postback or callback command is fired.
+            </summary>
+            <remarks>
+            The Command event can be used for specialized post backs/ call backs.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.SessionKey">
+            <summary>
+            Gets or sets a unique string that represents a session variable key containing all <b>OlapManager</b> data.
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.Dundas#Olap#Manager#IToolbarClient#ToolbarClientID">
+            <summary>
+            Gets the toolbar client ID.
+            </summary>
+            <value>The toolbar client ID.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManager.Dundas#Olap#Manager#IToolbarClient#Commands">
+            <summary>
+            Gets the commands.
+            </summary>
+            <value>The commands.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.CurrentOlapReportChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:Dundas.Olap.Manager.ReportEventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdateEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdate"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:Dundas.Olap.Manager.ReportEventArgs"/> object that contains the event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.ErrorDetectedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.ErrorDetected"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:Dundas.Olap.Manager.ErrorDetectedEventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.DataSchemaChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.DataSchemaChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:System.EventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.CurrentCubeChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.CurrentCubeChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            An <see cref="T:System.EventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.OlapReportsChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.OlapReportsChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:System.EventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.CellSetChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.CellSetChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:System.EventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChangedEventHandler">
+            <summary>
+            Represents the method that will handle the <see cref="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged"/> event.
+            </summary>
+            <param name="sender">
+            The source of the event.
+            </param>
+            <param name="e">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisDimensionsChangedEventArgs"/> object that contains event data.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.NumbersRange.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.NumbersRange.#ctor(System.Decimal,System.Decimal)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="start">start value</param>
+            <param name="end">end value</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.NumbersRange.Between(System.Decimal)">
+            <summary>
+            Checks if value is in range.
+            </summary>
+            <param name="number">number to check</param>
+            <returns>true if number is in range</returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.NumbersRange.Start">
+            <summary>
+            Start value
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.NumbersRange.End">
+            <summary>
+            End value
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.KpiImagesCollection">
+            <summary>
+            Class represents the images collection for Kpi trend or status.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.KpiImagesCollection.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.KpiImagesCollection.Add(Dundas.Olap.Manager.NumbersRange,System.String)">
+            <summary>
+            Adds a image to a collection for a specified range.
+            </summary>
+            <param name="range">Range.</param>
+            <param name="img">Image url.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.KpiImagesCollection.ContainsKey(System.Decimal)">
+            <summary>
+            Checks if the given number is in the collection.
+            </summary>
+            <param name="number">Number to be checked.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.KpiImagesCollection.Item(System.Decimal)">
+            <summary>
+            Returns image for the given number.
+            </summary>
+            <param name="number">number.</param>
+            <returns>image string.</returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.CubeBrowserSettings">
+            <summary>
+            Represents an object that exposes a number of properties that define how data is
+            shown in the Cube Dimension Browser controls.
+            </summary>
+            <remarks>
+            The <b>CubeDimensionBrowser</b> and <b>AxisBuilder</b> controls share the same settings 
+            that define how different metadata elements are shown in the Cube Dimension Browser.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.AllowMultipleSlicerMemberSelection">
+            <summary>
+            Defines if multiple member selection from the same dimension on the
+            slicer axis is allowed.
+            </summary>
+            <value>
+            Returns <b>true</b> if multiple members from the same dimension can be selected on the slicer axis.
+            </value>
+            <remarks>
+            Setting the <b>AllowMultipleSlicerMemberSelection</b> propery to true is only valid when
+            the current data provider supports that feature. This can be checked using the
+            <b>SupportsMultipleSlicerMemberSelection</b> property of the data provider.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.AllowMultipleHierarchiesFromSameDimensionOnAxis">
+            <summary>
+            Defines if multiple hierarchies from the same dimension can be placed on the same or different axes.
+            </summary>
+            <value>
+            Returns <b>true</b> if multiple hierarchies from the same dimension can be placed on the same or different axes.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.ShowLevelCaptionInDimensionDescriptor">
+            <summary>
+            Indicates that level caption should be shown instead of the dimension caption on the axis DimensionDescriptor button.
+            </summary>
+            <value>
+            Returns <b>true</b> if Levle caption should be shown on the DimensionDescriptor button.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.ShowNamedSets">
+            <summary>
+            Defines if NamedSets are shown in the CubeDimensionBrowser and which folder will contain them.
+            </summary>
+            <value>
+            A <see cref="T:Dundas.Olap.Manager.NamedSetPlacement"/> value that is used to determine if named sets
+            are shown in the Cube Dimension Browser.
+            </value>
+            <remarks>
+            Named sets can be shown in the special root folder 'NamedSets' and/or inside
+            associated their associated dimensions.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.ShowMeasuresInFolders">
+            <summary>
+            Gets or sets the <b>FolderUsageCondition</b> that defines if measures 
+            are shown in folders within the <b>CubeDimensionBrowser</b>.
+            </summary>
+            <value>
+            A <see cref="T:Dundas.Olap.Manager.FolderUsageCondition"/> value that is used to determine if measures
+            are shown in folders within the <b>CubeDimensionBrowser</b>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.ShowHierarchiesInFolders">
+            <summary>
+            Gets or sets the <b>FolderUsageCondition</b> that defines if hierarchies 
+            are shown in folders inside the <b>CubeDimensionBrowser</b>.
+            </summary>
+            <value>
+            A <see cref="T:Dundas.Olap.Manager.FolderUsageCondition"/> value that is used to determine if hierarchies
+            are shown in folders inside the <b>CubeDimensionBrowser</b>.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.CubeBrowserSettings.ShowAttributeHierarchies">
+            <summary>
+            Gets or sets the flag that indicates if attribute hierarchies should be shown
+            in the CubeDimensionBrowser.
+            </summary>
+            <value>
+            A <b>boolean</b> value that is used to determine if attribute hierarchies are
+            shown inside the cube dimension browser.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManagerToolbarSettings">
+            <summary>
+            Toolbar settings for the <see cref="T:Dundas.Olap.Manager.OlapManager"/>
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManagerToolbarSettings.#ctor(Dundas.Olap.Manager.OlapManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OlapManagerToolbarSettings"/> class.
+            </summary>
+            <param name="owner">The owner.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManagerToolbarSettings.GetDefaultOrderBase">
+            <summary>
+            Gets the default order base.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapManagerToolbarSettings.GetEmbededCommands">
+            <summary>
+            Gets the embeded commands.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapManagerToolbarSettings.Transpose">
+            <summary>
+            Gets or sets the transpose command.
+            </summary>
+            <value>The transpose command.</value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.DataAxisDimensionsChangedEventArgs">
+            <summary>
+            DataAxisDimensionsChanged event arguments.
+            </summary>
+            <seealso cref="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged"/>
+            <remarks>
+            This object is used to pass arguments to the <see cref="E:Dundas.Olap.Manager.OlapManager.DataAxisDimensionsChanged"/> event.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.DataAxisDimensionsChangedEventArgs.#ctor">
+            <summary>
+            Default constructor is not accessible.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.DataAxisDimensionsChangedEventArgs.#ctor(Dundas.Olap.Manager.DataAxisType)">
+            <summary>
+            Object constructor.
+            </summary>
+            <param name="axisType">
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> object that represents axis type that event 
+            is related to.
+            </param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.DataAxisDimensionsChangedEventArgs.AxisType">
+            <summary>
+            Gets the axis type that was changed.
+            </summary>
+            <value>
+            A <see cref="T:Dundas.Olap.Manager.DataAxisType"/> object that represents changed axis type.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ErrorDetectedEventArgs">
+            <summary>
+            ErrorDetected event arguments.
+            </summary>
+            <seealso cref="E:Dundas.Olap.Manager.OlapManager.ErrorDetected"/>
+            <remarks>
+            This object is used to pass arguments to the <see cref="E:Dundas.Olap.Manager.OlapManager.ErrorDetected"/> event.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ErrorDetectedEventArgs.#ctor">
+            <summary>
+            Default constructor is not accessible.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ErrorDetectedEventArgs.#ctor(System.Exception)">
+            <summary>
+            Object constructor.
+            </summary>
+            <param name="ex">
+            An <see cref="T:System.Exception"/> object argument.
+            </param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ErrorDetectedEventArgs.ErrorException">
+            <summary>
+            Gets the exception event argument.
+            </summary>
+            <value>
+            An <see cref="T:System.Exception"/> object that represents an exception event argument.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ErrorDetectedEventArgs.Handled">
+            <summary>
+            Gets or sets a flag that indicates if the error was already handled.
+            </summary>
+            <value>
+            Returns <b>true</b> if the error was handled and no further processing is required.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.ReportEventArgs">
+            <summary>
+            Report related events arguments object.
+            </summary>
+            <seealso cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportChanged"/>
+            <seealso cref="E:Dundas.Olap.Manager.OlapManager.CurrentOlapReportUpdate"/>
+            <remarks>
+            This object is used to pass arguments to the report related events.
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ReportEventArgs.#ctor">
+            <summary>
+            Default constructor is not accessible.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.ReportEventArgs.#ctor(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Object constructor.
+            </summary>
+            <param name="report">
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object that is passed to the event.
+            </param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.ReportEventArgs.Report">
+            <summary>
+            Gets an OlapReport event argument.
+            </summary>
+            <value>
+            An <see cref="T:Dundas.Olap.Manager.OlapReport"/> object that represent an event argument.
+            </value>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapDataProviderNameConverter">
+            <summary>
+            Olap DataProvider name converter class.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapDataProviderNameConverter.GetStandardValuesExclusive(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Returns whether the collection of standard values returned from 
+            GetStandardValues is an exclusive list of possible values, 
+            using the specified context.
+            </summary>
+            <param name="context">
+            An <b>ITypeDescriptorContext</b> that provides a format context. 
+            </param>
+            <returns>
+            Returns <b>true</b> if the TypeConverter.StandardValuesCollection returned from 
+            GetStandardValues is an exhaustive list of possible values; 
+            <b>false</b> if other values are possible.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapDataProviderNameConverter.GetStandardValuesSupported(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Returns whether this object supports properties, using the specified context.
+            </summary>
+            <param name="context">
+            An ITypeDescriptorContext that provides a format context.
+            </param>
+            <returns>
+            Returns <b>true</b> if GetProperties should be called to find the properties of this object; 
+            otherwise, <b>false</b>.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapDataProviderNameConverter.GetStandardValues(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Returns a collection of standard values for the data type this type converter 
+            is designed for.
+            </summary>
+            <param name="context">
+            An ITypeDescriptorContext that provides a format context that can be used to 
+            extract additional information about the environment from which this converter 
+            is invoked.
+            </param>
+            <returns>
+            A TypeConverter.StandardValuesCollection that holds a standard set of valid values, 
+            or a null reference (Nothing in Visual Basic) if the data type does not support a 
+            standard set of values.
+            </returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapWebManagerDesigner">
+            <summary>
+            OLAP Manager Web control designer.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebManagerDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes component.
+            </summary>
+            <param name="component">
+            Component to initialize.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebManagerDesigner.Dispose(System.Boolean)">
+            <summary>
+            Dispose object.
+            </summary>
+            <param name="disposing">
+            Indicates if unmanaged resources should be disposed.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebManagerDesigner.OnComponentRemoved(System.Object,System.ComponentModel.Design.ComponentEventArgs)">
+            <summary>
+            ComponentRemoved event handler.
+            </summary>
+            <param name="sender">
+            Event sender.
+            </param>
+            <param name="ce">
+            Event arguments.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebManagerDesigner.OnComponentRename(System.Object,System.ComponentModel.Design.ComponentRenameEventArgs)">
+            <summary>
+            ComponentRename event handler.
+            </summary>
+            <param name="sender">
+            Event sender.
+            </param>
+            <param name="ce">
+            Event arguments.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebManagerDesigner.GetDesignTimeHtml">
+            <summary>
+            Gets the design time HTML source that present the control.
+            </summary>
+            <returns>
+            HTML source as a string.
+            </returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapWebManagerDesigner.OlapManager">
+            <summary>
+            OlapManager object.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.IOlapCallbackHandler">
+            <summary>
+            Interface to handle drag and drop update callbacks.
+            For internal use only
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.IOlapCallbackHandler.PopulateCallbackContent(System.Web.UI.HtmlTextWriter,System.String)">
+            <summary>
+            Returns internal content of the control used to visual ( DHTML) or script updating.
+            </summary>
+            <param name="output">A <see cref="T:System.Web.UI.HtmlTextWriter"/> used for output</param>
+            <param name="contentType">The requested type of content</param>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapCallbackHandler">
+            <summary>
+            Interface to handle drag and drop update callbacks.
+            For internal use only
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.IOlapConditionalCallbackHandler">
+            <summary>
+            Interface to query control if its should be updated.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.IOlapConditionalCallbackHandler.ShouldPopulateCallbackContent">
+            <summary>
+            Returns true if this control should populate its callback content
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapState">
+            <summary>
+            Serializable Olap State.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.Reports">
+            <summary>
+            Reports data.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.OlapReports">
+            <summary>
+            Reports data.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.ReportName">
+            <summary>
+            Report name.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.DataProvider">
+            <summary>
+            Data provider.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.OriginalCurrentReport">
+            <summary>
+            The original report for undo.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.CubeBrowserSettings">
+            <summary>
+            Cube Dimension Browser settings
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapState.OriginalNewOlapReport">
+            <summary>
+            The original report for undo.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapWebUtils">
+            <summary>
+            Summary description for OlapUtils.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebUtils.GetObjByName(System.Web.UI.Control,System.String)">
+            <summary>
+            Gets object by it's name.
+            </summary>
+            <param name="parent">
+            Object parent.
+            </param>
+            <param name="name">
+            Object name.
+            </param>
+            <returns>
+            Found object or Null.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebUtils.GetScriptsList(System.String)">
+            <summary>
+            Gets the scripts list.
+            </summary>
+            <param name="scriptName">Name of the script.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebUtils.GetCallBackScripts">
+            <summary>
+            Gets the call back scripts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapWebUtils.IsDesignMode(System.Web.UI.Control)">
+            <summary>
+            Determines whether [is design mode] [the specified CTRL].
+            </summary>
+            <param name="ctrl">The CTRL.</param>
+            <returns>
+            	<c>true</c> if [is design mode] [the specified CTRL]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.PreventBackNavigation">
+            <summary>
+            The PreventBackNavigation enumeraion declares types about preventing back browser navigation.
+            In case that OlapManages saves its internal data into session variable back browser navigation should 
+            be disabled;
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.PreventBackNavigation.Auto">
+            <summary>
+            Auto. The OlapManages will decide if there is need to be disabled back browser navigation.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.PreventBackNavigation.False">
+            <summary>
+            Back browser navigation is not controlled.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.PreventBackNavigation.True">
+            <summary>
+            Back browser navigation is suppressed.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapManagerState">
+            <summary>
+            OLAP Manager state enumeration.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.None">
+            <summary>
+            State unknown.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.CurrentCubeChanged">
+            <summary>
+            The current cube was changed.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.OlapReportsChanged">
+            <summary>
+            The OLAP Report was changed.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.DataAxisDimensionsChanged">
+            <summary>
+            One of the axes was changed.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.DataSchemaChanged">
+            <summary>
+            The data schema was changed.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.CurrentOlapReportsChanged">
+            <summary>
+            The current OLAP Report was changed.
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.OlapManagerState.CellSetPageChanged">
+            <summary>
+            Page was changed.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapSessionExpiredException">
+            <summary>
+            The exception that is thrown when server session has been expired and OLAP session variable is lost.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapSessionExpiredException.#ctor">
+            <summary>
+            Creates new instance of OlapSessionExpiredException object.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.FlagsEnumUITypeEditor">
+            <summary>
+            UI type editor for the enumerations with Flags attribute
+            </summary>
+        </member>
+        <member name="F:Dundas.Olap.Manager.FlagsEnumUITypeEditor.enumType">
+            <summary>
+            Enumeration type.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.FlagsEnumUITypeEditor.EditValue(System.ComponentModel.ITypeDescriptorContext,System.IServiceProvider,System.Object)">
+            <summary>
+            Display a drop down list with check boxes.
+            </summary>
+            <param name="context">Editing context.</param>
+            <param name="provider">Provider.</param>
+            <param name="value">Value to edit.</param>
+            <returns>Result</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.FlagsEnumUITypeEditor.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+            <summary>
+            Gets editing style.
+            </summary>
+            <param name="context">Editing context.</param>
+            <returns>Editor style.</returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.FlagsEnumCheckedListBox">
+            <summary>
+            Checked list box, which is used for the UI type editing.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.FlagsEnumCheckedListBox.#ctor(System.Object,System.Type)">
+            <summary>
+            Public constructor.
+            </summary>
+            <param name="editValue">Value to edit.</param>
+            <param name="editType">Typpe to edit.</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.FlagsEnumCheckedListBox.FillList">
+            <summary>
+            Fills checked list items
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.FlagsEnumCheckedListBox.GetNewValue">
+            <summary>
+            Gets new enumeration value.
+            </summary>
+            <returns>New enum value.</returns>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapReport">
+            <summary>
+            Represents a report list that contains all information stored 
+            in Dundas OLAP Services.
+            </summary>
+            <seealso cref="T:Dundas.Olap.Manager.OlapReportCollection"/>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.CurrentOlapReport"/>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            <remarks>
+            The <b>OlapReport</b> class stores all information required to generate an OLAP report. 
+            This includes the cube to get data from, and the dimensions that should be 
+            placed on the series and categorical axis. Additional information like the 
+            sort and filter status, the chart template and others are also stored in 
+            the <b>OlapReport</b>.
+            
+            <p>The <b>OlapReport</b> class is used in the <see cref="T:Dundas.Olap.Manager.OlapManager"/> to define the 
+            current OLAP report. Use the <see cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/> method 
+            to change the current OLAP report. The <see cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/> property 
+            of the OlapManager may store a list of available reports.</p>
+            </remarks>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.CopyFrom(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Copies all data from the specified report into this object.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapReport.Clone"/>
+            <param name="report">
+            <b>OlapReport</b> to copy the data from.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.Clone">
+            <summary>
+            Creates an exact copy of the object.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapReport.CopyFrom(Dundas.Olap.Manager.OlapReport)"/>
+            <returns>
+            Returns an <see cref="T:Dundas.Olap.Manager.OlapReport"/> object which is an exact copy
+            of this object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.LoadReport(System.IO.Stream)">
+            <summary>
+            Loads report from the stream.
+            </summary>
+            <param name="stream">
+            A <see cref="T:System.IO.Stream"/> object to load the report from.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.SaveReport(System.IO.Stream)">
+            <summary>
+            Saves report into the stream.
+            </summary>
+            <param name="stream">
+            A <see cref="T:System.IO.Stream"/> object to save the report into.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.LoadFromXmlNode(System.Xml.XmlNode)">
+            <summary>
+            Helper method that loads report from the XML node.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapReport.SaveAsXmlNode(System.Xml.XmlDocument)"/>
+            <param name="xmlNode">
+            An <see cref="T:System.Xml.XmlNode"/> object to load report data from.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.SaveAsXmlNode(System.Xml.XmlDocument)">
+            <summary>
+            Helper method that saves all report data into the <b>XmlNode</b> object.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapReport.LoadFromXmlNode(System.Xml.XmlNode)"/>
+            <param name="xmlDocument">
+            An <see cref="T:System.Xml.XmlDocument"/> object where report will be saved.
+            </param>
+            <returns>
+            An <see cref="T:System.Xml.XmlNode"/> object that contains all report data.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReport.GetChildNodeByName(System.Xml.XmlNode,System.String)">
+            <summary>
+            Helper method that gets XML child node by name.
+            </summary>
+            <param name="xmlNode">
+            An <see cref="T:System.Xml.XmlNode"/> object that contains the child nodes.
+            </param>
+            <param name="name">
+            A <b>string</b> value that represents the name of the child node to find.
+            </param>
+            <returns>
+            Found child <b>XmlNode</b> object or <b>null</b> if node not found.
+            </returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.Name">
+            <summary>
+            Gets or sets the report name.
+            </summary>
+            <value>
+            A <b>string</b> value that represents the report name.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.Description">
+            <summary>
+            Gets or sets the report description.
+            </summary>
+            <value>
+            A <b>string</b> value that represents the report description.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.CubeName">
+            <summary>
+            Gets or sets the report cube name.
+            </summary>
+            <value>
+            A <b>string</b> value that represents the report cube name.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.DataTitleFormat">
+            <summary>
+            Gets or sets the report title format.
+            </summary>
+            <value>
+            A <b>string</b> value that represents the report title format.
+            </value>
+            <remarks>
+            Special keywords can be inserted in this text that will be updated based on 
+            the data shown in the report. For example, the default format is 
+            "#MEASURES by #DIMENSIONS" and it shows the names of currently 
+            displayed measures and dimensions.
+            
+            <p>The following table displays a list of keywords and its descriptions:</p>
+            <p><TABLE id="KeywordTable" height="89" cellSpacing="0" border="1">
+            <TR>
+            <TD bgcolor="#C0C0C0"><b>Keyword</b></TD>
+            <TD bgcolor="#C0C0C0"><b>Description</b></TD>
+            </TR>
+            <TR>
+            <TD>#MEASURES</TD>
+            <TD>List of displayed measure names.</TD>
+            </TR>
+            <TR>
+            <TD>#DIMENSIONS</TD>
+            <TD>List of displayed dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#SERIES_DIMENSIONS</TD>
+            <TD>List of displayed series dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#CATEGORICAL_DIMENSIONS</TD>
+            <TD>List of displayed categorical dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#SLICER_DIMENSIONS</TD>
+            <TD>List of displayed slicer dimension names.</TD>
+            </TR>
+            <TR>
+            <TD>#SORTING_AND_FILTERING</TD>
+            <TD>Sorting and filtering conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#SORTING</TD>
+            <TD>Sorting conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#FILTERING</TD>
+            <TD>Value filtering conditions.</TD>
+            </TR>
+            <TR>
+            <TD>#FILTERING_TOP_BOTTOM</TD>
+            <TD>Top/bottom filtering conditions.</TD>
+            </TR>
+            </TABLE></p>
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.ReadOnly">
+            <summary>
+            Gets or sets the flag that indicates if the report is read-only.
+            </summary>
+            <value>
+            A <b>boolean</b> value that indicates if the report is read-only.
+            </value>
+            <remarks>
+            When the report is marked as read-only, the end user cannot modify, rename
+            or delete it using the OLAP client UI controls.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.NonEmptyCellsOnly">
+            <summary>
+            Gets or sets the flag that indicates if only non-empty cells should be 
+            displayed in the resulting cellset.
+            </summary>
+            <value>
+            A <b>boolean</b> value that indicates if only non-empty cells should be 
+            displayed in the resulting cellset.
+            </value>
+            <remarks>
+            When this property is set to <b>false</b>, all cells in the cellset are
+            displayed. When this property is set to <b>true</b>, all rows or columns that
+            contain empty cells are removed.
+            
+            Note that rows and columns will not be removed if they contain at least 
+            one non-empty cell.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.ChartTemplate">
+            <summary>
+            Gets or sets the chart template used in the report. 
+            </summary>
+            <b>SaveTemplateIntoString</b>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/>
+            <remarks>
+            The chart templates will automatically be created and/or persisted when the end-user works with
+            the OLAP report. Also, the chart template can be created using the <b>SaveTemplateIntoString</b>
+            method of the <b>OlapChart</b> control.
+            
+            <p>You can make a report current by using the <see cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/> method 
+            of the <b>OlapManager</b>.</p>
+            
+            <p>If this property is not empty, the template data is loaded 
+            into the chart control when the report becomes current.</p>
+            </remarks>
+            <value>
+            A <b>string</b> value that represents a chart template.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.ControlStateBag">
+            <summary>
+            Gets the control state bag used for saving and loading 
+            the appearance state from additional controls such as OlapGrid.
+            </summary>
+            <seealso cref="M:Dundas.Olap.Manager.OlapManager.SetCurrentOlapReport(Dundas.Olap.Manager.OlapReport)"/>
+            <value>The control state bag.</value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.AxisDescriptors">
+            <summary>
+            Gets or sets an array of three axis descriptors (Categorical, Series and Slicer) 
+            that define the <b>OlapReport</b> requested data. 
+            </summary>
+            <value>
+            An array of three <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> objects that define the requested
+            data.
+            </value>
+            <remarks>
+            Each axis descriptor defines dimensions and members that 
+            must be retrieved on their associated axis.
+            </remarks>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.AxisDescriptorCategorical">
+            <summary>
+            Gets or sets the categorical axis descriptor that defines dimensions and members 
+            to be retrieved on the categorical axis.
+            </summary>
+            <seealso cref="T:Dundas.Olap.Data.AxisDescriptor"/>
+            <value>
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that defines dimensions and members 
+            to be retrieved on the categorical axis.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.AxisDescriptorSeries">
+            <summary>
+            Gets or sets the series axis descriptor that defines dimensions and members 
+            to be retrieved on the series axis.
+            </summary>
+            <value>
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that defines dimensions and members 
+            to be retrieved on the series axis.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.AxisDescriptorSlicer">
+            <summary>
+            Gets or sets the slicer axis descriptor that defines dimensions and members 
+            to be retrieved on the slicer axis.
+            </summary>
+            <seealso cref="T:Dundas.Olap.Data.AxisDescriptor"/>
+            <seealso cref="P:Dundas.Olap.Manager.OlapReport.AxisDescriptors"/>
+            <value>
+            An <see cref="T:Dundas.Olap.Data.AxisDescriptor"/> object that defines dimensions and members 
+            to be retrieved on the slicer axis.
+            </value>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReport.ExpandedTuples">
+            <summary>
+            Gets or sets an array of the expanded categorical tuple names.
+            </summary>
+            <value>
+            An <b>ArrayList</b> value that represents an array of expanded tuple names.
+            </value>
+            <remarks>
+            This array list will automatically be populated when the end-user expands 
+            nodes on the report.
+            </remarks>
+        </member>
+        <member name="T:Dundas.Olap.Manager.OlapReportCollection">
+            <summary>
+            Represents a collection of <see cref="T:Dundas.Olap.Manager.OlapReport"/> objects.
+            <seealso cref="T:Dundas.Olap.Manager.OlapReport"/>
+            <seealso cref="P:Dundas.Olap.Manager.OlapManager.OlapReports"/>
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.#ctor">
+            <summary>
+            Default constructor is unaccessible.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.#ctor(Dundas.Olap.Manager.OlapManager)">
+            <summary>
+            Object constructor.
+            </summary>
+            <param name="olapManager">
+            An <see cref="T:Dundas.Olap.Manager.OlapManager"/> object this collection belongs to.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.Remove(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Removes the specified <b>OlapReport</b> from the collection.
+            </summary>
+            <param name="olapReport">
+            <see cref="T:Dundas.Olap.Manager.OlapReport"/> object to be removed.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.Add(Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Adds an <b>OlapReport</b> to the end of the collection.
+            </summary>
+            <param name="olapReport">
+            <see cref="T:Dundas.Olap.Manager.OlapReport"/> object to add.
+            </param>
+            <returns>
+            Index of the newly added object.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.Insert(System.Int32,Dundas.Olap.Manager.OlapReport)">
+            <summary>
+            Inserts an <b>OlapReport</b> into the collection.
+            </summary>
+            <param name="index">
+            Index to insert the object at.
+            </param>
+            <param name="olapReport">
+            <see cref="T:Dundas.Olap.Manager.OlapReport"/> object to insert.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnInsert(System.Int32,System.Object)">
+            <summary>
+            New element is inserted into the collection.
+            </summary>
+            <param name="index">
+            Index where new element will be inserted.
+            </param>
+            <param name="value">
+            Element object to be inserted.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnInsertComplete(System.Int32,System.Object)">
+            <summary>
+            New element was inserted into the collection.
+            </summary>
+            <param name="index">
+            Element index.
+            </param>
+            <param name="value">
+            Element value.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnSet(System.Int32,System.Object,System.Object)">
+            <summary>
+            Value of the element with specified index is changing.
+            </summary>
+            <param name="index">
+            Element index.
+            </param>
+            <param name="oldValue">
+            Element old value.
+            </param>
+            <param name="newValue">
+            Element new value.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnSetComplete(System.Int32,System.Object,System.Object)">
+            <summary>
+            Vale of the element was changed.
+            </summary>
+            <param name="index">
+            Element index.
+            </param>
+            <param name="oldValue">
+            Element old vlaue.
+            </param>
+            <param name="newValue">
+            Element new vlaue.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnRemoveComplete(System.Int32,System.Object)">
+            <summary>
+            Element was removed from the list.
+            </summary>
+            <param name="index">
+            Element index.
+            </param>
+            <param name="value">
+            Element value.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnClearComplete">
+            <summary>
+            Report list was cleared.
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.OnNewItem(Dundas.Olap.Manager.OlapReport,System.Int32)">
+            <summary>
+            Helper method that initialize new olap report item in the collection.
+            </summary>
+            <param name="olapReport">
+            New <b>OlapReport</b> object.
+            </param>
+            <param name="setItemIndex">
+            Index of the collection item beign set.
+            </param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.GetUniqueName">
+            <summary>
+            Helper method that gets unique name for the new report.
+            </summary>
+            <returns>
+            Unique report name.
+            </returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.OlapReportCollection.FindByName(System.String)">
+            <summary>
+            Finds an <b>OlapReport</b> by name.
+            </summary>
+            <param name="reportName">
+            A <b>string</b> value that represents the Olap Report name to find.
+            </param>
+            <returns>
+            <see cref="T:Dundas.Olap.Manager.OlapReport"/> object or <b>null</b> if not found.
+            </returns>
+        </member>
+        <member name="P:Dundas.Olap.Manager.OlapReportCollection.Item(System.Object)">
+            <summary>
+            Gets an <b>OlapReport</b> by index or by unique name.
+            </summary>
+        </member>
+        <member name="T:Dundas.Olap.Manager.LocalizationManager">
+            <summary>
+            Localization manager
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.Save">
+            <summary>
+            Saves current localization info in default file
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.Save(System.String)">
+            <summary>
+            Saves localization information in a file
+            </summary>
+            <param name="fileName">file name</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetCtrlID(System.Web.UI.Control)">
+            <summary>
+            Get Control "ID" in XML
+            </summary>
+            <param name="ctrl">Control</param>
+            <returns>id used in xml file</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetCtrlID(System.Web.UI.Control,System.Boolean)">
+            <summary>
+            Get Control "ID" in XML
+            </summary>
+            <param name="ctrl">Control</param>
+            <param name="isParent">indicates that the id is for parent</param>
+            <returns>control id</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.Load">
+            <summary>
+            Loads localization file
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.LoadControl(System.Web.UI.Control)">
+            <summary>
+            Loads localization for control
+            </summary>
+            <param name="ctrl">control to be localizaed</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetTranslatedValue(System.String,System.Type,System.String)">
+            <summary>
+            For internal use
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetTranslatedValue(System.String,System.String,System.String)">
+            <summary>
+            For internal use
+            </summary>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetTranslatedValue(System.Web.UI.Control,System.String)">
+            <summary>
+            Gets translation for value for the given control
+            </summary>
+            <param name="ctrl">Control</param>
+            <param name="engValue">value in english</param>
+            <returns>Translated value</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.ShouldSerializeData(System.Web.UI.Control)">
+            <summary>
+            Checks if the data for control should be serialized
+            </summary>
+            <param name="ctrl">Control</param>
+            <returns>should data foc control be serialized</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.CheckControlType(System.Type,System.String@)">
+            <summary>
+            Checks if control should be localized
+            </summary>
+            <param name="controlType">control type</param>
+            <param name="name">tag name</param>
+            <returns>serialize/don't serialize the value</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetXmlNode(System.Web.UI.Control)">
+            <summary>
+            Returns XML node for the control
+            </summary>
+            <param name="ctrl">Control</param>
+            <returns>XML node</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.ShouldSerializeControl(System.Web.UI.Control,System.String@)">
+            <summary>
+            Checks if control should be serialized/deserialized
+            </summary>
+            <param name="ctrl">Control</param>
+            <param name="elementType">element tag</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.TranslateAttr(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Maps attribure from XML to Control and back
+            </summary>
+            <param name="from">source list</param>
+            <param name="to">destination list</param>
+            <param name="attrName">attribute name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.TranslateControlToXml(System.String)">
+            <summary>
+            Translate attribute from control to XML
+            </summary>
+            <param name="attrName">attr name</param>
+            <returns>attribute in XML</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.TranslateXmlToControl(System.String)">
+            <summary>
+            Translate Xml attribute to control
+            </summary>
+            <param name="attrName">attribute name</param>
+            <returns>attribute for control</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.SaveControl(System.Xml.XmlElement,System.Web.UI.Control)">
+            <summary>
+            Saves the control in XML
+            </summary>
+            <param name="parent">parent element</param>
+            <param name="ctrl">Control to be serialized</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.CreateTranslatableElement(System.String,System.String)">
+            <summary>
+            Creates an item for translation in items collection
+            </summary>
+            <param name="eng">english value</param>
+            <param name="trans">translated value</param>
+            <returns>nex xml element</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetControlData(System.Web.UI.Control)">
+            <summary>
+            Gets the XML element for the given control
+            </summary>
+            <param name="ctrl">Control</param>
+            <returns>Xml element</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.GetControl(System.Web.UI.Control,System.String)">
+            <summary>
+            Returns child control for the control with given ID used in XML
+            </summary>
+            <param name="ctrl">Control</param>
+            <param name="id">ID to be used</param>
+            <returns>control</returns>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.LoadControl(System.Xml.XmlElement,System.Web.UI.Control)">
+            <summary>
+            Loads control translation from the given element
+            </summary>
+            <param name="element">element</param>
+            <param name="ctrl">control</param>
+        </member>
+        <member name="M:Dundas.Olap.Manager.LocalizationManager.SetControlData(System.Xml.XmlElement,System.Web.UI.Control)">
+            <summary>
+            Sets translated text to item collection of the control
+            </summary>
+            <param name="collection">Xml element with translated values</param>
+            <param name="ctrl">Control to be translated</param>
+        </member>
+        <member name="P:Dundas.Olap.Manager.LocalizationManager.Enabled">
+            <summary>
+            Indicates that localization is enabled
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.LocalizationManager.CultureXmlPath">
+            <summary>
+            Path for the XML file
+            </summary>
+        </member>
+        <member name="P:Dundas.Olap.Manager.LocalizationManager.ThrowOnError">
+            <summary>
+            Indicates that exception should be thrown on error
+            </summary>
+        </member>
+    </members>
+</doc>
